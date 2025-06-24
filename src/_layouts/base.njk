@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} - {% endif %}{{ site.title or "11ty Site" }}</title>
+    <meta name="description" content="{{ description or site.description or 'A website built with 11ty' }}">
+    
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <!-- Custom TypeScript -->
+    <script type="module" src="/dist/main.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold">
+                        <a href="/" class="text-blue-600 hover:text-blue-700">{{ site.title or "11ty Site" }}</a>
+                    </h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/" class="text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="/cases/" class="text-gray-600 hover:text-blue-600">Cases</a>
+                </div>
+            </nav>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        {{ content | safe }}
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-auto">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-sm">&copy; {{ site.year or '2024' }} {{ site.title or "11ty Site" }}. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

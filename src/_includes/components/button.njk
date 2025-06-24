@@ -1,0 +1,29 @@
+{% macro button(text, variant="primary", size="", outline=false, href="", type="button", disabled=false, classes="") %}
+  {% set buttonClasses = "btn" %}
+  
+  {% if outline %}
+    {% set buttonClasses = buttonClasses + " btn--outline" %}
+  {% endif %}
+  
+  {% if variant %}
+    {% set buttonClasses = buttonClasses + " btn--" + variant %}
+  {% endif %}
+  
+  {% if size %}
+    {% set buttonClasses = buttonClasses + " btn--" + size %}
+  {% endif %}
+  
+  {% if classes %}
+    {% set buttonClasses = buttonClasses + " " + classes %}
+  {% endif %}
+  
+  {% if href %}
+    <a href="{{ href }}" class="{{ buttonClasses }}" {% if disabled %}aria-disabled="true"{% endif %}>
+      {{ text }}
+    </a>
+  {% else %}
+    <button type="{{ type }}" class="{{ buttonClasses }}" {% if disabled %}disabled{% endif %}>
+      {{ text }}
+    </button>
+  {% endif %}
+{% endmacro %} 

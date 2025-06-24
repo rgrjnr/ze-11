@@ -1,0 +1,33 @@
+---
+layout: base.njk
+title: Cases
+description: Browse our collection of case studies and projects
+---
+
+{% from "components/card.njk" import card %}
+
+<div class="px-4">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Case Studies</h1>
+            <p class="text-xl text-gray-600">Explore our projects and solutions</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-animate>
+            {% for case in collections.cases %}
+                {{ card(
+                    case.data.title,
+                    case.data.excerpt,
+                    case.url,
+                    case.data.image
+                ) }}
+            {% endfor %}
+        </div>
+
+        {% if collections.cases.length === 0 %}
+        <div class="text-center py-12">
+            <p class="text-gray-500 text-lg">No cases available yet. Check back soon!</p>
+        </div>
+        {% endif %}
+    </div>
+</div> 

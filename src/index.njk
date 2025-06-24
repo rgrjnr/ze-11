@@ -1,0 +1,104 @@
+---
+layout: base.njk
+title: Home
+description: Welcome to our 11ty site with Tailwind CSS, TypeScript, and SCSS
+---
+
+{% from "components/hero.njk" import hero %}
+{% from "components/card.njk" import card %}
+{% from "components/button.njk" import button %}
+
+{{ hero("Welcome to 11ty", "A modern static site built with Tailwind CSS, TypeScript, and SCSS", "View Cases", "/cases/") }}
+
+<div class="px-4 py-12">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gradient">Features</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            {{ card(
+                "11ty Static Site",
+                "Fast and flexible static site generation with Eleventy",
+                "/about/",
+                null
+            ) }}
+            {{ card(
+                "Tailwind CSS",
+                "Utility-first CSS framework for rapid UI development",
+                "/design/",
+                null
+            ) }}
+            {{ card(
+                "TypeScript",
+                "Type-safe JavaScript that compiles to clean, readable code",
+                "/development/",
+                null
+            ) }}
+        </div>
+    </div>
+</div>
+
+<div class="px-4 py-12 bg-gray-100">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8">SCSS Components</h2>
+        <p class="text-center text-gray-600 mb-8">Demonstrating the power of SCSS with Tailwind CSS</p>
+        
+        <div class="space-y-8">
+            <!-- Button Examples -->
+            <div class="text-center">
+                <h3 class="text-xl font-semibold mb-4">Button Variants</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    {{ button("Primary", "primary") }}
+                    {{ button("Secondary", "secondary") }}
+                    {{ button("Success", "success") }}
+                    {{ button("Warning", "warning") }}
+                    {{ button("Danger", "danger") }}
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <h3 class="text-xl font-semibold mb-4">Outline Buttons</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    {{ button("Primary Outline", "primary", "", true) }}
+                    {{ button("Secondary Outline", "secondary", "", true) }}
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <h3 class="text-xl font-semibold mb-4">Button Sizes</h3>
+                <div class="flex flex-wrap justify-center gap-4 items-center">
+                    {{ button("Small", "primary", "sm") }}
+                    {{ button("Default", "primary") }}
+                    {{ button("Large", "primary", "lg") }}
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <h3 class="text-xl font-semibold mb-4">Link Buttons</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    {{ button("View Cases", "primary", "", false, "/cases/") }}
+                    {{ button("Learn More", "secondary", "", true, "/about/") }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="px-4 py-12">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8">Animation Examples</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="card hover-lift" data-animate>
+                <div class="card__body">
+                    <h3 class="text-xl font-semibold mb-2">Hover Lift Effect</h3>
+                    <p class="text-gray-600">This card lifts up when you hover over it, thanks to our SCSS hover utilities.</p>
+                </div>
+            </div>
+            
+            <div class="card hover-scale" data-animate>
+                <div class="card__body">
+                    <h3 class="text-xl font-semibold mb-2">Hover Scale Effect</h3>
+                    <p class="text-gray-600">This card scales up slightly when hovered, creating an engaging interaction.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,19 @@
+{% macro hero(title, subtitle, buttonText, buttonLink) %}
+<div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            {% if title %}
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">{{ title }}</h1>
+            {% endif %}
+            {% if subtitle %}
+            <p class="text-xl md:text-2xl mb-8 text-blue-100">{{ subtitle }}</p>
+            {% endif %}
+            {% if buttonText and buttonLink %}
+            <a href="{{ buttonLink }}" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                {{ buttonText }}
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endmacro %} 
