@@ -4,15 +4,20 @@
   "description": "11ty project with Tailwind CSS and TypeScript",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:scss && npm run build:ts && npm run build:11ty",
-    "build:scss": "sass src/styles/input.scss:_site/assets/css/style.css --style=compressed --no-source-map",
-    "build:scss:watch": "sass src/styles/input.scss:_site/assets/css/style.css --watch",
+    "build": "npm run build:css && npm run build:js && npm run build:11ty",
+    "build:css": "postcss src/styles/input.scss -o _site/assets/css/style.css",
+    "build:css:watch": "postcss src/styles/input.scss -o _site/assets/css/style.css --watch",
+    "build:js": "vite build",
+    "build:js:dev": "vite build --mode development",
     "build:ts": "tsc",
     "build:11ty": "eleventy",
-    "watch": "npm run build:scss:watch & npm run watch:ts & npm run watch:11ty",
+    "watch": "npm run build:css:watch & npm run watch:js & npm run watch:11ty",
+    "watch:js": "vite build --watch",
     "watch:ts": "tsc --watch",
     "watch:11ty": "eleventy --watch --serve",
     "dev": "npm run watch",
+    "dev:js": "vite",
+    "dev:full": "concurrently \"npm run build:css:watch\" \"npm run dev:js\" \"npm run watch:11ty\"",
     "clean": "rm -rf _site dist",
     "serve": "eleventy --serve"
   },
@@ -27,14 +32,20 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^3.1.1",
-    "gsap": "^3.13.0"
+    "gsap": "^3.13.0",
+    "posthog-js": "^1.255.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "@vitejs/plugin-legacy": "^6.1.1",
     "autoprefixer": "^10.4.16",
+    "concurrently": "^9.2.0",
     "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.1",
     "sass": "^1.69.5",
     "tailwindcss": "^3.3.6",
-    "typescript": "^5.3.2"
+    "terser": "^5.43.1",
+    "typescript": "^5.3.2",
+    "vite": "^6.3.5"
   }
 }

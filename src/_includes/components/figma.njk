@@ -1,0 +1,9 @@
+{% macro figma(src, attributes = {}) %}
+    {% set url = attributes.url or src %}
+    {% set aspectRatio = attributes['aspect-ratio'] or '16/9' %}
+    {% if url %}
+        {% set embedUrl = url %}
+        {# JavaScript to process Figma URLs #}
+        <iframe src="{{ embedUrl }}" class="figma-embed" allowfullscreen style="mix-blend-mode: multiply; width: 100%; aspect-ratio: {{ aspectRatio }}; max-height: 90svh;"></iframe>
+    {% endif %}
+{% endmacro %}

@@ -1,12 +1,12 @@
 {
-  "title": "11ty Boilerplate",
-  "description": "A modern 11ty starter with Tailwind CSS and TypeScript",
-  "url": "https://your-domain.com",
+  "title": "José Ferreira",
+  "description": "José is a UX/UI Designer based in Lisbon, Portugal.",
+  "url": "https://joseferreira.io",
   "author": {
-    "name": "Your Name",
-    "email": "your.email@example.com"
+    "name": "José Ferreira",
+    "email": "hi@joseferreira.io"
   },
-  "year": "2024",
+  "year": "2025",
   "language": "en",
   "environment": "development"
 } 

@@ -1,0 +1,68 @@
+{% macro persona(name, image = null, bio = null, bullet_points = null, needs = null, pains = null, gains = null, background = '#f0f0f0') %}
+    <div class="persona-block pb-16">
+        <div class="persona-container">
+            <div class="flex gap-8">
+                {% if image %}
+                    <div class="persona-image-wrapper hidden md:block">
+                        <div class="persona-image-inner" style="background-color: {{ background }};">
+                            <img src="{{ image }}" alt="{{ name or 'Persona image' }}" class="persona-image"/>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="persona-content">
+                    <div class="persona-name">{{ name }}</div>
+                    <!-- Bio -->
+                    {% if bio %}
+                        <div class="persona-bio">
+                            <p>{{ bio }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+                {% if bullet_points %}
+                    <div class="persona-bullets">
+                        <div>Key Information</div>
+                        <ul class="bullet-points">
+                            {% for point in bullet_points %}
+                                <li>{{ point }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="flex flex-col md:flex-row gap-4 mt-8">
+                    {% if needs %}
+                        <div class="note">
+                            <strong>Needs</strong>
+                            <ul>
+                                {% for need in needs %}
+                                    <li>{{ need }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    {% if pains %}
+                        <div class="note">
+                            <strong>Pain</strong>
+                            <ul>
+                                {% for pain in pains %}
+                                    <li>{{ pain }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    {% if gains %}
+                        <div class="note">
+                            <strong>Gains</strong>
+                            <ul>
+                                {% for gain in gains %}
+                                    <li>{{ gain }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

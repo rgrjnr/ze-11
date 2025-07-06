@@ -1,42 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if title %}{{ title }} - {% endif %}{{ site.title or "11ty Site" }}</title>
-    <meta name="description" content="{{ description or site.description or 'A website built with 11ty' }}">
-    
-    <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css">
-    
-    <!-- Custom TypeScript -->
-    <script type="module" src="/dist/main.js"></script>
-</head>
-<body class="bg-gray-50 text-gray-900">
-    <header class="bg-white shadow-sm">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <h1 class="text-xl font-bold">
-                        <a href="/" class="text-blue-600 hover:text-blue-700">{{ site.title or "11ty Site" }}</a>
-                    </h1>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a href="/" class="text-gray-600 hover:text-blue-600">Home</a>
-                    <a href="/cases/" class="text-gray-600 hover:text-blue-600">Cases</a>
-                </div>
-            </nav>
-        </nav>
-    </header>
-
-    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        {{ content | safe }}
-    </main>
-
-    <footer class="bg-gray-800 text-white mt-auto">
-        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-sm">&copy; {{ site.year or '2024' }} {{ site.title or "11ty Site" }}. All rights reserved.</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% if title %}
+                {{ title }} -
+            {% endif %}
+            {{ site.title or "11ty Site" }}</title>
+        <meta
+        name="description" content="{{ description or site.description or 'A website built with 11ty' }}"> <!-- Tailwind CSS -->
+        <link rel="stylesheet" href="https://use.typekit.net/hpo8xtc.css">
+        <link
+        rel="stylesheet" href="/assets/css/style.css">
+        <!-- Custom TypeScript -->
+        <script src="/dist/main.js" type="module"></script>
+        <script nomodule src="/dist/main-legacy.js"></script>
+    </head>
+    <body class="{{ tags }}">
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+                <header class="container">
+                    <nav class="flex justify-between items-center">
+                        <a href="mailto:hi@joseferreira.io" class="text-xl font-bold flex items-center gap-2">
+                            {% include "src/assets/images/logo-email.svg" %} hi@joseferreira.io
+                        </a>
+                        <div class="flex items-center space-x-4">
+                            <a href="/" class="text-gray-600 hover:text-blue-600">Home</a>
+                            <a href="/cases/" class="text-gray-600 hover:text-blue-600">Cases</a>
+                        </div>
+                    </nav>
+                </header>
+                <main>
+                    {{ content | safe }}
+                </main>
+                <footer class="container relative">
+                    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+                        <p class="text-center text-sm">&copy; {{ site.year or '2024' }}
+                            {{ site.title or "11ty Site" }}. All rights reserved.</p>
+                    </div>
+                    <svg
+                        width="78"
+                        height="153"
+                        viewbox="0 0 78 153"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="absolute bottom-0 left-0">
+                        <path
+                            d="M42.9684 26.3694C37.1624 22.8494 36.4234 20.0593 34.7524 23.2593C29.9624 32.4393 49.5724 44.3392 47.4924
+                                32.8992C46.1414 25.4692 44.1274 26.7193 37.0394 24.2393"
+                            stroke="#262626"
+                            stroke-width="4"
+                            stroke-miterlimit="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"/>
+                        <path
+                            d="M36.5196 35.07C34.8596 44.61 -5.6384 51.82 12.7026 31.59C19.5746 24.02 20.5416 24.7798 30.8326 25.3898C39.3856 25.8898
+                                27.0626 27.8599 22.1756 22.7699C8.77659 8.83992 24.5976 -1.2401 32.4656 3.4999C43.4796 10.1399 42.8726 12.6199 43.5726
+                                20.4899C43.5606 20.3899 37.9276 5.69984 58.4356 2.18984C59.3686 2.02984 70.4866 0.139957 63.6626 12.81C62.6236 14.74
+                                62.7146 14.8399 49.1256 25.7099C51.7756 24.1799 55.0236 19.1299 69.2156 26.0399C72.6706 27.7199 72.4946 33.43 67.4186
+                                34.86C63.7256 35.9 63.7126 35.0499 50.5956 32.7399L50.2686 30.4499C56.3206 34.9599 72.3706 43.28 60.8856 59.36C58.9606
+                                62.05 45.9356 63.5799 44.3896 42.6999C43.9826 37.2099 45.4326 37.6798 46.1856 36.6598"
+                            stroke="#262626"
+                            stroke-width="4"
+                            stroke-miterlimit="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"/>
+                        <path
+                            d="M43.9647 39.4694C42.6427 35.4694 45.5797 66.7295 37.2027 63.7695C32.5717 62.1395 34.0996 40.1496 34.0996 40.0896"
+                            stroke="#262626"
+                            stroke-width="4"
+                            stroke-miterlimit="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"/>
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M44.9865 147.129C45.5165 148.089 45.1615 149.309 44.1935 149.839C43.2255 150.369 42.0095 150.019 41.4785
+                                149.049C18.8075 107.679 20.0425 76.4893 34.4985 35.3393C34.8645 34.2993 36.0075 33.7493 37.0485 34.1193C38.0905 34.4793
+                                38.6385 35.6191 38.2725 36.6691C24.2295 76.6291 22.9635 106.949 44.9865 147.129Z"
+                            fill="#262626"/>
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M47.4827 149.859C47.5067 149.749 47.7357 148.629 47.9317 147.469C48.5377 143.899 49.6047 137.429 51.6237
+                                130.169C54.5717 119.579 59.5737 107.409 67.9807 99.959C68.1927 99.769 70.8197 97.4991 72.8227 96.8391C73.7067 96.5391
+                                74.5287 96.519 75.1897 96.709L76.1197 97.1589L76.8547 97.939C77.2177 98.499 77.5047 99.3391 77.4437 100.599C77.3867
+                                101.749 77.0177 103.459 76.1367 105.889C68.1537 127.879 66.1857 126.989 58.9237 149.339C58.5827 150.389 57.4537 150.959
+                                56.4037 150.619C55.3537 150.279 54.7787 149.149 55.1197 148.099C62.4027 125.689 64.3707 126.579 72.3767 104.529C72.8697
+                                103.169 73.1467 101.869 73.2917 101.009C73.2057 101.049 73.1237 101.099 73.0517 101.139C71.8617 101.859 70.7547 102.839
+                                70.6357 102.949C62.7807 109.919 58.2317 121.349 55.4777 131.239C53.2197 139.359 52.1837 146.479 51.6407 149.489C51.4597
+                                150.499 51.2847 151.149 51.1707 151.409C50.7227 152.419 49.5397 152.869 48.5307 152.419C47.5487 151.989 47.0917 150.849
+                                47.4827 149.859Z"
+                            fill="#262626"/>
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M32.3326 142.719C32.6396 142.699 32.9506 142.669 33.2646 142.639C34.3626 142.519 35.3476 143.319 35.4626
+                                144.409C35.4966 144.729 35.4536 145.039 35.3496 145.319C36.0966 145.979 36.8706 146.709 37.7186 147.599C38.4796 148.399
+                                38.4476 149.659 37.6476 150.429C36.8486 151.189 35.5816 151.159 34.8206 150.359C33.4136 148.879 32.2076 147.849 30.9926
+                                146.809C24.7726 147.069 19.7836 145.799 15.7816 143.629C5.20458 137.879 1.46558 125.569 0.391584 116.789C-0.131416
+                                112.509 -0.0344195 109.099 0.134581 107.749C0.182581 107.369 0.246582 107.089 0.298582 106.919L0.638578 106.239L1.05958
+                                105.759L1.49458 105.409L1.97359 105.159L2.53758 104.999L3.13458 104.959L3.70758 105.029C4.10958 105.129 4.59558 105.319
+                                5.15858 105.709C6.71858 106.789 9.61458 110.189 15.0506 119.189C24.6026 134.999 28.8686 139.649 32.3326 142.719ZM26.5886
+                                142.709C23.3926 139.309 19.0856 133.609 11.6266 121.259C8.10258 115.419 5.78059 112.099 4.20259 110.279C4.15459 110.229
+                                4.10758 110.179 4.05958 110.119C4.03758 111.699 4.07659 113.979 4.36159 116.299C5.30859 124.039 8.36259 135.049 17.6916
+                                140.119C20.1876 141.469 23.1286 142.389 26.5886 142.709Z"
+                            fill="#262626"/>
+                    </svg>
+                </footer>
+            </div>
         </div>
-    </footer>
-</body>
-</html> 
+    </body>
+</html>

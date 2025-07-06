@@ -1,0 +1,10 @@
+{% macro note(content, title="") %}
+    <div class="note">
+        <div class="note-header">
+            {{ title | safe }}
+        </div>
+        <div class="note-content">
+            {{ content | safe }}
+        </div>
+    </div>
+{% endmacro %}
