@@ -2,7 +2,7 @@
 title: "Redesigning Mobi.E: Clarifying Purpose Through Design"
 layout: cases.njk
 tags: cases
-excerpt: This is a sample case study demonstrating the structure and content format
+excerpt: This project focused on improving the Mobi.E website's user experience by addressing key challenges in information discovery, charging procedures, and support access. Through user-centered design, we simplified navigation and content to create a more efficient platform for both new and experienced electric vehicle users.
 image: /assets/cases/mobie/og.png
 ---
 
@@ -12,9 +12,9 @@ image: /assets/cases/mobie/og.png
 
 ## Overview
 
-The **Museu Nacional de Arte Antiga (MNAA)** is Portugal’s **leading museum for pre-19th-century art**. Located in Lisbon, it houses a vast collection of Portuguese and European works, **reflecting the country's rich cultural and artistic heritage.**
+Mobi.E is Portugal's national electric mobility network, responsible for managing and promoting the public charging infrastructure for electric vehicles (EVs). As EV adoption continues to rise, the accessibility and clarity of information provided through digital platforms is crucial to supporting a smooth user experience.
 
-This project focused on **redesigning the digital experience** for the Museu Nacional de Arte Antiga (MNAA), Portugal’s premier museum for pre-modern art. As a **UX/UI Designer**, I led the **user research**, **ideation**, and **interface design** with the **goal** of making the website more **user-friendly**, **informative**, and **inclusive**.
+For this project, we focused specifically on improving the user experience of the Mobi.E website. Our aim was to address key usability challenges related to how users search for information, understand charging procedures, and access support. By taking a user-centered approach, we worked to simplify navigation, clarify content, and enhance the overall efficiency of the website — helping both new and experienced users make the most of the platform.
 
 ## Process
 
@@ -22,126 +22,111 @@ This project focused on **redesigning the digital experience** for the Museu Nac
 
 ## Discovery
 
-According to the "Público do Museu Nacional de Arte Antiga" report, the majority of MNAA visitors are **women aged 35 to 64**, with **66.5% employed in intellectual and scientific professions**. Their main motivations include a **strong interest in the museum** and the **desire to revisit the permanent collection**.
+At the time of the project, Mobi.E was growing alongside the rise of electric vehicle usage in Portugal. As the main public EV charging platform, its website was a crucial tool for users — from newcomers to regular drivers. However, despite being functionally complete, the site had major usability issues: users struggled to find information, understand key processes, and navigate effectively.
 
-To build on these insights, a **thematic analysis of online reviews** was conducted, alongside an **evaluation of competitor websites**, revealing key usability issues and opportunities for improvement. These findings supported the creation of a user persona, the definition of a clear problem statement, and the identification of areas where the website could deliver a more distinctive and user-centered experience.
+To better understand user needs and pain points, we began this phase with a comprehensive assessment of the current experience — including Desk Research, stakeholder interviews, Heuristic Evaluation and a questionnaire — allowing us to define clear opportunities for improving the clarity, accessibility, and overall user experience of the site.
 
-![Discovery phase showing user research and analysis](/assets/cases/mnaa/discovery.png)
+### Desk Research and User Interviews
+
+To understand users' real challenges with Mobi.E and the public EV charging network, we conducted desk research across platforms like Portal da Queixa, Reddit, and YouTube, identifying common frustrations and misconceptions. We also interviewed EV users to gain deeper insight into their daily experiences. A key theme that emerged was confusion around Mobi.E's responsibilities, often resulting in misplaced blame and damage to its public image — a major issue we sought to address in our redesign.
+
+![Discovery phase showing user research and analysis](/assets/cases/mobie/research.png)
 
 ### Key Issues Identified
 
-1. **Unclear communication**
-   Visitors struggled to find accurate info on hours and closures, leading to missed exhibitions.
-2. **Rigid Visit Structure**
-   The fixed itinerary felt limiting; more flexibility could let visitors tailor their experience.
-3. **Insufficient Context**
-   Lack of artwork details left visitors without deeper understanding or appreciation.
-4. **Buried Information**
-   Important details like schedules and closures were hard to find, causing confusion.
-5. **Mobile Accessibility**
-   The site wasn’t mobile-friendly, making it harder for smartphone users to access key info.
+1. **Lack of clarity about Mobi.E's role**
+   Users are frequently unsure who is responsible for specific problems (e.g. charging station failures or billing), leading to frustration and misplaced blame.
+2. **Poor availability and reliability of charging stations**
+   Complaints about malfunctioning, unavailable, or under-maintained stations are widespread and deeply impact the user experience.
+3. **Difficulty accessing clear pricing information**
+   Users struggle to understand how much they will pay, especially given the involvement of third-party providers and varying price structures.
+4. **Low perceived support and responsiveness**
+   Many users feel abandoned when they face problems, citing delayed or unclear responses from support channels.
+5. **Overwhelming or missing information on the website**
+   Users experience unclear or failed payments and lack transparency about transaction flows and responsibilities.
+6. **Payment-related issues and a confusing transaction process**
+   The current structure does not effectively guide users or answer their most urgent questions, resulting in confusion and frustration.
 
-### Problem Statement
+### Heuristic evaluation of the existing website
 
-Visitors struggle to plan and enjoy their museum visits due to **unclear communication**, **limited flexibility**, **lack of contextual information**, and **poor mobile accessibility**. The current digital experience fails to provide essential details in an accessible, user-friendly way, resulting in confusion, missed opportunities, and reduced engagement.
+To identify usability issues on the Mobi.E website, we conducted a heuristic evaluation based on Nielsen's principles. This helped us uncover key problems in how the site communicates, functions, and presents information.
 
-### Heuristic evaluation of the existing website 🔎
-
-Next, it was essential to evaluate the museum’s current website to identify usability issues through a **heuristic evaluation**.
-
-![Heuristic evaluation results showing usability issues](/assets/cases/mnaa/heuristic.png)
+We identified three main areas for improvement:
 
 <div class="flex flex-col md:flex-row gap-4 my-16">
     {{ note(
-        content="The **system hinders information discovery**, complicates the **journey for new users**, and lacks shortcuts for advanced users. The pages are **excessively** **long**.",
-        title="7 - Flexibility and Efficiency of Use") }}
+        content="- The interface lacks clear and intuitive communication
+- Technical terms like 'CEME' or 'OPC' are used without explanation, confusing users unfamiliar with the electric mobility ecosystem
+- Inconsistencies in layout and interaction patterns lead to a fragmented experience
+- Some pages are overloaded with content, affecting readability and task completion.",
+        title="1 - Visibility of System Status") }}
     {{ note(
-        content="The **interface is outdated** and **unintuitive**, with a lack of **organization** in both **content** and **navigation**. Additionally, the **sidebar menu** competes with the **main information**, and the **footer** repeats information already in the **header**, missing the opportunity to use this space for more **important information** for **new users**.",
-        title="8 - Aesthetic and minimalist design") }}
+        content="- Low contrast and unclear visual hierarchy make navigation harder, especially for users with low vision
+- Typography lacks consistency in size and weight, hurting overall readability
+- Key elements are not visually distinguished, leading to cognitive overload",
+        title="2 - Match Between System and Real World") }}  
+    {{ note(
+        content="- The site does not clearly differentiate between user types (e.g. private users vs. institutional partners), leading to confusion
+- Information is scattered and lacks clear pathways, forcing users to navigate multiple pages to find what they need",
+        title="3 - User Control and Freedom") }}
 </div>
 
-The existing UI includes a **bulky header menu without a clear sub-navigation structure**, contributing to a disorienting experience. The hero banner also poses **accessibility challenges**, depending heavily on the image displayed for **readability and contrast**.
+### Questionnaire
 
-Critically, the homepage **fails to surface essential visitor information** such as ticket prices, opening hours, and museum rules, creating uncertainty and friction in the user journey. To address these shortcomings, a **Mobile-First approach was adopted**, since the current website lacks a fully responsive or optimized experience for mobile users.
+To further validate our findings, we conducted a questionnaire with 10 participants, asking them to rate their experience with the Mobi.E website and identify key pain points. The results were consistent with our heuristic evaluation, confirming the need for a more user-friendly and accessible design.
 
-### Recommendations for Improvement
+![Questionnaire results showing user pain points](/assets/cases/mobie/results.png)
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-center">
-    {% macro recommendation(image, title, description) %}
-    <div class="note justify-center h-full">
-        <img src="{{ image }}" alt="{{ title }}" class="mx-auto">
-        <strong>{{ title }}</strong>
-        <p class="text-sm" style="margin-block: 0;">{{ description }}</p>
-    </div>
-    {% endmacro %}
+### Problem Statement
 
-    {{ recommendation(
-        image="/assets/cases/mnaa/enhance-communication.svg",
-        title="Enhance Communication",
-        description="Improve information clarity and accessibility for visitors."
-    ) }}
-    {{ recommendation(
-        image="/assets/cases/mnaa/flexible-itineraries.svg",
-        title="Flexible itineraries",
-        description="Itinerary recomendations for personalized visitor experience."
-    ) }}
-    {{ recommendation(
-        image="/assets/cases/mnaa/provide-information.svg",
-        title="Provide information",
-        description="Add content about the artworks, artists, and themes to enrich the visitor experience."
-    ) }}
-    {{ recommendation(
-        image="/assets/cases/mnaa/improve-navigation.svg",
-        title="Improve navigation",
-        description="Make key info easy to find with a dedicated visitor info section."
-    ) }}
-    {{ recommendation(
-        image="/assets/cases/mnaa/mobile-optimization.svg",
-        title="Mobile optimization",
-        description="Create mobile-friendly version for smartphone users"
-    ) }}
+Mobi.E plays a crucial role in Portugal's electric mobility network, yet most users don't understand what it is or what it does. Only 45% of survey respondents are familiar with the platform, and just 1 in 10 use its website to locate charging stations.
 
-</div>
+This confusion stems from poor communication and a website that fails to clearly convey Mobi.E's responsibilities. As a result, users often blame Mobi.E for issues caused by third-party operators, leading to frustration and a negative perception.
+
+To better serve a growing EV community, Mobi.E must improve visibility, . communication, simplify its platform, and deliver a clearer, more user-friendly experience.
+
+## Strategy
 
 ### Persona
 
 {{ persona(
-name="Maria Historiadora",
+name="Maria da Luz",
 image="/assets/cases/mnaa/persona.svg",
-bio="Maria Historiadora, a 55-year-old European woman, is passionate about history and culture. She regularly travels to discover new places, seeking museums that blend art and historical context, and enjoys photography and local cuisine. While in Lisbon, she was eager to visit the National Museum of Ancient Art, hoping to connect with the Age of Discoveries as highlighted in her travel guide.",
+bio="Maria da Luz is a 40-year-old consultant from Faro, Portugal. She’s married with two children and works in a hybrid model, often traveling to Lisbon for business. Tech-savvy and practical, Maria values sustainability and convenience, and is considering switching to an electric vehicle. However, the complexity of the topic and unclear information leave her feeling overwhelmed and hesitant to make the leap.",
 bulletPoints=["Age: 55 years old", "European", "Passionate about history and culture", "Likes to visit museums and photography"],
-gains=["Beautiful garden providing a pleasant outdoors experience.",
-"Finds useful and relevant information, including historical context for each exhibit.",
-"Easily locates desired content, such as exhibit details, visitor amenities, and ticketing options."],
-pains=["Maria values museums that offer engaging local history and cultural context.",
-"She wants a smooth visit with clear info, good facilities, and practical policies."],
-needs=["Maria values museums that offer engaging local history and cultural context.",
-"She wants a smooth visit with clear info, good facilities, and practical policies."]
+gains=[
+    "Contributing to a more sustainable future",
+    "Saving money in the long term with EV ownership",
+    "Finding reliable tools or platforms that simplify complex decisions",
+    "Receiving recommendations she can trust"
+],
+pains=[
+    "The topic feels complicated and fragmented",
+    "Information overload and contradictory advice",
+    "Concerns about hidden EV-related costs",
+    "Limited time to do thorough research"
+],
+needs=[
+    "Clear, simple explanations without technical jargon",
+    "Centralized, trustworthy information about electric mobility",
+    "A smooth, intuitive digital experience",
+    "Support in understanding total cost and logistics of owning an EV"
+]
 ) }}
 
 ## Strategy
 
-At this stage, the **main objective** was to define the **structure and behavior of the new website**, with a particular focus on the homepage. After identifying key structural issues in the existing website, a revised site map was developed to establish a clearer, more intuitive navigation framework.
+Following the discovery phase, we focused on restructuring the website to address key user pain points—mainly confusion around Mobi.E’s role and scattered, technical information. We created a clearer site map, reorganized content based on user needs, and simplified language to make the platform more accessible. A dedicated microsite was also designed to help users better understand Mobi.E’s mission and services.
 
-![Site map showing improved navigation structure](/assets/cases/mnaa/sitemap.svg)
+### Sitemap
 
-### Competitive analysis
-
-Once the **overall layout and key components** were established, a **competitive analysis** was conducted to examine how other museum websites addressed similar challenges. **Insights gathered** **from this research** were combined with **internal brainstorming sessions**, leading to a set of **ideas tailored to the specific needs of MNAA and its users.**
-
-![Competitive analysis comparing museum websites](/assets/cases/mnaa/competitive-analysis.png)
+![Site map showing improved navigation structure](/assets/cases/mobie/sitemap.png)
 
 ### Wireframes
 
 Next, **paper wireframes** were created to visualize early ideas with low commitment. This approach allowed for **quick iterations** and **easy adjustments** as the concept evolved.
 
-![Paper wireframes showing initial design concepts](/assets/cases/mnaa/paper.png)
-
-### Low-fidelity prototype
-
-The concept was then translated into an interactive **low-fidelity digital prototype**, allowing for early testing of structure, navigation, and user flow.
-
-![Low fidelity digital prototype for user testing](/assets/cases/mnaa/low.png)
+![Paper wireframes showing initial design concepts](/assets/cases/mobie/paper.png)
 
 ## Design
 
@@ -149,16 +134,12 @@ Finally, it was time to **bring the ideas to life**. Building on **insights from
 
 ### UI Kit
 
-![UI Kit showing design system components](/assets/cases/mnaa/ui.png)
+![UI Kit showing design system components](/assets/cases/mobie/ui.png)
 
 ### High Fidelity Prototype
 
-After **refining the wireframes based on user feedback**, the project moved into the **high-fidelity** **wireframing phase**.
+Once the visual language was defined in the UI Kit, we translated the new structure into a polished, high-fidelity prototype. This phase focused on applying branding, layout, and visual hierarchy to deliver a realistic and cohesive user experience.
 
-This stage focused on **translating the improved structure and functionality** into a **visually accurate** **design**, incorporating the **final layout**, **branding elements**, **and interactive components** to closely reflect the **final user experience**.
+![High fidelity prototype](/assets/cases/mobie/high.png)
 
 {{ figma("https://www.figma.com/proto/c3pO8vegBbQCUkHrWycsS2/Personal_MNAA?page-id=2%3A596&node-id=280-400&node-type=frame&viewport=-738%2C3523%2C0.55&t=LKHITdseNQHyKuej-1&scaling=scale-down&content-scaling=fixed")}}
-
-## What I Learned
-
-Working on the **MNAA project** taught me the value of deeply understanding **user needs** through **research** and **empathy mapping**. I learned how critical it is to **validate problems early** and incorporate **feedback** into iterative **design processes**, ensuring every solution aligns with both **user expectations** and **organizational goals**.

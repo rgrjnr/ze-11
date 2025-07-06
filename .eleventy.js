@@ -1,4 +1,5 @@
 const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
+const MarkdownIt = require("markdown-it");
 
 module.exports = async function (eleventyConfig) {
   const { IdAttributePlugin } = await import("@11ty/eleventy");
@@ -6,6 +7,12 @@ module.exports = async function (eleventyConfig) {
 
   eleventyConfig.addPlugin(IdAttributePlugin);
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+
+  // Markdown filter
+  const md = new MarkdownIt();
+  eleventyConfig.addFilter("markdown", function (content) {
+    return md.render(content);
+  });
 
   // Image processing shortcode
   eleventyConfig.addShortcode(

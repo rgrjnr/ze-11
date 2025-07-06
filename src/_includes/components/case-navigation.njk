@@ -1,0 +1,55 @@
+{% macro caseNavigation(collections, currentUrl) %}
+    {% set currentIndex = -1 %}
+    {% for case in collections.cases %}
+        {% if case.url === currentUrl %}
+            {% set currentIndex = loop.index0 %}
+        {% endif %}
+    {% endfor %}
+    {% if currentIndex >= 0 %}
+        {% set previousCase = collections.cases[currentIndex - 1] if currentIndex > 0 else collections.cases[collections.cases.length - 1] %}
+        {% set nextCase = collections.cases[currentIndex + 1] if currentIndex < collections.cases.length - 1 else collections.cases[0] %}
+        <div class="flex justify-between items-center mt-12 py-16 border-t border-gray-200 gap-4">
+            <a href="{{ previousCase.url }}" class=" text-gray-600 hover:text-blue-600 transition-colors">
+                <div class="text-sm font-bold flex items-center gap-2 justify-start">
+                    <svg width="21" height="12" viewBox="0 0 21 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.91423 1.74902C6.88542 1.77756 6.37201 2.20783 5.05937 3.20894C3.19732 4.62907 1.70796 5.53361 1.36547
+                                5.95898C1.23622 6.11951 1.445 6.30506 1.61159 6.43488C1.94209 6.69242 2.88565 7.16849 4.20639 7.92025C5.83181 9.07959
+                                6.47259 9.54982 7.07751 9.99246C7.33485 10.1559 7.71722 10.3725 8.11117 10.5957"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"/>
+                        <path
+                            d="M3.16309 5.83336C3.76771 5.77697 4.37234 5.72058 6.90524 5.64475C9.43814 5.56892 13.881 5.47535 16.2558
+                                5.39024C18.6305 5.30513 18.8026 5.23132 18.9457 5.1933C19.0888 5.15527 19.1977 5.15527 19.3099 5.15527"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"/>
+                    </svg>
+                    <div class="">Previous case</div>
+                </div>
+                <div class="text-sm font-medium text-balance">{{ previousCase.data.title }}</div>
+            </a>
+            <a href="{{ nextCase.url }}" class=" text-gray-600 hover:text-blue-600 transition-colors text-right">
+                <div class="text-sm font-bold flex items-center gap-2 justify-end">Next case
+                    <svg width="21" height="12" viewBox="0 0 21 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13.7205 10.5957C13.7493 10.5672 14.2628 10.1369 15.5754 9.13578C17.4374 7.71565 18.9268 6.81112 19.2693
+                                6.38574C19.3985 6.22522 19.1898 6.03967 19.0232 5.90985C18.6927 5.6523 17.7491 5.17624 16.4284 4.42447C14.803 3.26514
+                                14.1622 2.79491 13.5573 2.35227C13.2999 2.18883 12.9175 1.97219 12.5236 1.74899"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"/>
+                        <path
+                            d="M17.4717 6.51137C16.8671 6.56776 16.2624 6.62414 13.7295 6.69998C11.1966 6.77581 6.75378 6.86938 4.37901
+                                6.95448C2.00425 7.03959 1.83221 7.1134 1.68911 7.15143C1.54601 7.18945 1.43708 7.18945 1.32484 7.18945"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="text-sm font-medium text-balance">{{ nextCase.data.title }}</div>
+            </a>
+        </div>
+    {% endif %}
+{% endmacro %}

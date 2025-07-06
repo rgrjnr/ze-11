@@ -18,7 +18,12 @@
         <script nomodule src="/dist/main-legacy.js"></script>
     </head>
     <body class="{{ tags }}">
-        <div id="smooth-wrapper">
+        <div
+            id="smooth-wrapper">
+            <!-- Progress Bar -->
+            <div class="progress-bar-container fixed top-0 left-0 w-full z-50">
+                <div class="progress-bar h-1 bg-blue-600 origin-left"></div>
+            </div>
             <div id="smooth-content">
                 <header class="container">
                     <nav class="flex justify-between items-center">
@@ -33,11 +38,14 @@
                     </nav>
                 </header>
                 <main class="container">
-                    <h1 class="text-4xl font-bold text-center my-24" data-line-split>{{ title }}</h1>
-                    <img src="{{ image }}" alt="{{ title }}" class="w-full h-auto">
+                    <h1 class="text-4xl font-bold text-center my-24" data-line-split style="text-wrap: balance;">{{ title }}</h1>
+                    <img src="{{ image }}" alt="{{ title }}" class="w-full h-auto  rounded-lg">
                     <div class="content">
                         {{ content | safe }}
                     </div>
+                    {# Case Navigation #}
+                    {% from "components/case-navigation.njk" import caseNavigation %}
+                    {{ caseNavigation(collections, page.url) }}
                 </main>
                 <footer class="container">
                     <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">

@@ -4,7 +4,7 @@
             {{ title | safe }}
         </div>
         <div class="note-content">
-            {{ content | safe }}
+            {{ content | markdown | safe }}
         </div>
     </div>
 {% endmacro %}

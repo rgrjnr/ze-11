@@ -93,31 +93,25 @@ To better understand the pain points, we conducted six usability tests focused o
 
 While Revolut offers a relatively straightforward way to close an account within the app, the experience still raises questions and emotional reactions for users. To better understand how people navigate this flow, we mapped out the entire process and conducted usability tests to capture real user feedback. What follows is a step-by-step walkthrough of that experience, highlighting moments of clarity, confusion, and frustration along the way.
 
-1. Opening the menu → mild anxiety
-
-Users first dive into the hamburger menu hoping the process will be quick. The option isn’t immediately visible, so anticipation mixes with worry.
-2. Account Settings → pleasant surprise
-
-Inside Account Settings the “Close account” button is clearly labelled and high‑contrast. Participants appreciated how easy it was to spot (“The option is quite highlighted”).
-3. First Confirmation → hesitation kicks in
-
-A persuasive interstitial asks “Where are you going?” and nudges users to keep the account. Testers understood the prompt but some found the copy lengthy and clicked Close account without reading fully.
-4. Account Transfer Step → useful but unexpected
-
-Revolut encourages users to transfer any remaining balance. Most testers liked the practicality (“Oh! This is quite useful”), yet a few wondered why this wasn’t surfaced earlier in the flow.
-5. Rewards Reminder → positive reassurance
-
-A screen warns that rewards will be lost if the account is closed. Participants valued the transparency (“Good to know I can easily cancel”) but suggested condensing the text.
-6. Data‑Storage Notice → strong negative reaction
-
-The final step states that personal data must be retained for regulatory reasons. Almost all testers reacted negatively (“I don’t want them to keep my data!”) and requested clearer legal context and a timeframe for deletion.
+1. **Opening the menu** → _mild anxiety_ <br>
+   Users first dive into the hamburger menu hoping the process will be quick. The option isn’t immediately visible, so anticipation mixes with worry.
+2. **Account Settings** → _pleasant surprise_ <br>
+   Inside Account Settings the “Close account” button is clearly labelled and high-contrast. Participants appreciated how easy it was to spot (“The option is quite highlighted”).
+3. **First Confirmation** → _hesitation kicks in_ <br>
+   A persuasive interstitial asks “Where are you going?” and nudges users to keep the account. Testers understood the prompt but some found the copy lengthy and clicked Close account without reading fully.
+4. **Account Transfer Step** → _useful but unexpected_ <br>
+   Revolut encourages users to transfer any remaining balance. Most testers liked the practicality (“Oh! This is quite useful”), yet a few wondered why this wasn’t surfaced earlier in the flow.
+5. **Rewards Reminder** → _positive reassurance_ <br>
+   A screen warns that rewards will be lost if the account is closed. Participants valued the transparency (“Good to know I can easily cancel”) but suggested condensing the text.
+6. **Data-Storage Notice** → _strong negative reaction_ <br>
+   The final step states that personal data must be retained for regulatory reasons. Almost all testers reacted negatively (“I don’t want them to keep my data!”) and requested clearer legal context and a timeframe for deletion.
 
 ### Key Takeaways
 
 1. Findability is solid, but the journey starts with uncertainty because the entry point sits two taps deep.
-2. Persuasive screens are informative yet word‑heavy; users skim rather than read.
+2. Persuasive screens are informative yet word-heavy; users skim rather than read.
 3. Utility steps (balance transfer) are well received but feel out of sequence.
-4. Data‑retention messaging erodes trust; users need clearer explanations and the option to request data removal once legally possible.
+4. Data-retention messaging erodes trust; users need clearer explanations and the option to request data removal once legally possible.
 5. Overall ease is high, but emotional friction peaks at the end, exactly where confidence should be reinforced.
 
 ### Problem Statement

@@ -14,6 +14,44 @@ export const initAnimations = () => {
     effects: true,
   });
 
+  // Progress bar animation
+  const progressBar = document.querySelector(".progress-bar") as HTMLElement;
+  const progressBarContainer = document.querySelector(
+    ".progress-bar-container"
+  ) as HTMLElement;
+  if (progressBar && progressBarContainer) {
+    gsap.set(progressBar, { scaleX: 0 });
+    gsap.set(progressBarContainer, { y: "-200%" });
+
+    ScrollTrigger.create({
+      trigger: document.body,
+      start: "top top",
+      end: "bottom bottom",
+      onUpdate: (self) => {
+        // Show progress bar after scrolling 5% of the page
+        if (self.progress > 0.05) {
+          gsap.to(progressBarContainer, {
+            y: "0%",
+            duration: 0.4,
+            ease: "power2.out",
+          });
+        } else {
+          gsap.to(progressBarContainer, {
+            y: "-200%",
+            duration: 0.4,
+            ease: "power2.out",
+          });
+        }
+
+        gsap.to(progressBar, {
+          scaleX: self.progress,
+          duration: 0.1,
+          ease: "none",
+        });
+      },
+    });
+  }
+
   document.querySelectorAll("[data-draw]").forEach((el) => {
     const delay = el.getAttribute("data-delay") || 0;
     const duration = el.getAttribute("data-duration") || 0.5;
