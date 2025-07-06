@@ -250,22 +250,22 @@ To define our strategy, we analyzed various cooking and recipe platforms to unde
     {% endmacro %}
 
     {{ recommendation(
-        image="/assets/cases/pingodoce/clarity.svg",
+
         title="Clarity & Simplicity",
         description="Users prefer universal, visual measurements (e.g., cups, spoons) over grams."
     ) }}
     {{ recommendation(
-        image="/assets/cases/pingodoce/flexibility.svg",
+
         title="Flexibility is Crucial",
         description="Many tools fall short by limiting serving adjustments or only giving proportional hints."
     ) }}
     {{ recommendation(
-        image="/assets/cases/pingodoce/adaptability.svg",
+
         title="Recipe Adaptability",
         description="It's not enough to scale ingredients—the app must adapt recipes while maintaining clarity."
     ) }}
     {{ recommendation(
-        image="/assets/cases/pingodoce/integration.svg",
+
         title="Integration Adds Value",
         description="Merging features like shopping lists, nutrition info, and portion control adds real usability."
     ) }}
