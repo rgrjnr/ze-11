@@ -8,8 +8,33 @@
                 {{ title }} -
             {% endif %}
             {{ site.title or "11ty Site" }}</title>
+        <meta name="description" content="{% if excerpt %}{{ excerpt }}{% else %}{{ description or site.description or 'UX/UI Designer José Ferreira crafts accessible digital experiences—from museum sites to fintech—offering UX research, prototyping & design systems expertise.' }}{% endif %}">
         <meta
-        name="description" content="{{ description or site.description or 'A website built with 11ty' }}"> <!-- Tailwind CSS -->
+        name="author" content="José Ferreira"> <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://joseferreira.io{{ page.url }}">
+        <meta property="og:title" content="{% if title %}{{ title }} - José Ferreira{% else %}José Ferreira - UX/UI Designer{% endif %}">
+        <meta property="og:description" content="{% if excerpt %}{{ excerpt }}{% else %}{{ description or site.description or 'UX/UI Designer José Ferreira crafts accessible digital experiences—from museum sites to fintech—offering UX research, prototyping & design systems expertise.' }}{% endif %}">
+        <meta
+            property="og:image"
+            content="https://joseferreira.io{% if image %}{{ image }}{% else %}/assets/images/og.jpg{% endif %}">
+        <meta property="og:image:width" content="1200">
+        <meta
+        property="og:image:height" content="630"> <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://joseferreira.io{{ page.url }}">
+        <meta property="twitter:title" content="{% if title %}{{ title }} - José Ferreira{% else %}José Ferreira - UX/UI Designer{% endif %}">
+        <meta property="twitter:description" content="{% if excerpt %}{{ excerpt }}{% else %}{{ description or site.description or 'UX/UI Designer José Ferreira crafts accessible digital experiences—from museum sites to fintech—offering UX research, prototyping & design systems expertise.' }}{% endif %}">
+        <meta
+            property="twitter:image"
+            content="https://joseferreira.io{% if image %}{{ image }}{% else %}/assets/images/og.jpg{% endif %}">
+        <meta property="twitter:creator" content="@joseferreira">
+        <meta
+        property="twitter:site" content="@joseferreira"> <!-- Additional Meta Tags -->
+        <meta name="theme-color" content="#3B82F6">
+        <meta name="msapplication-TileColor" content="#3B82F6">
+        <link
+        rel="canonical" href="https://joseferreira.io{{ page.url }}"> <!-- Tailwind CSS -->
         <link rel="stylesheet" href="https://use.typekit.net/hpo8xtc.css">
         <link
         rel="stylesheet" href="/assets/css/style.css">

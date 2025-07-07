@@ -4,27 +4,21 @@ import legacy from "@vitejs/plugin-legacy";
 export default defineConfig({
   plugins: [
     legacy({
-      targets: ["defaults", "not IE 11"],
+      targets: [
+        "defaults",
+        "not IE 11",
+        "not dead",
+        "> 0.5%",
+        "last 2 versions",
+        "Firefox ESR",
+      ],
       additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
       renderLegacyChunks: true,
       polyfills: [
-        "es.symbol",
+        // Only include polyfills for features that aren't widely supported
         "es.promise",
         "es.promise.finally",
-        "es/map",
-        "es/set",
-        "es.array.filter",
-        "es.array.for-each",
-        "es.array.flat-map",
-        "es.object.define-properties",
-        "es.object.define-property",
-        "es.object.get-own-property-descriptor",
-        "es.object.get-own-property-descriptors",
-        "es.object.keys",
-        "es.object.to-string",
-        "web.dom-collections.for-each",
         "esnext.global-this",
-        "esnext.string.match-all",
       ],
     }),
   ],

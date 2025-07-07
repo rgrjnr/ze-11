@@ -90,7 +90,7 @@ h6 {
   &:before {
     content: "";
     display: block;
-    background-image: url("/assets/images/post-it-shadow.png");
+    background-image: url("/assets/images/post-it-shadow.webp");
     mix-blend-mode: multiply;
     background-size: 100% 100%;
     background-position: bottom center;
@@ -351,6 +351,7 @@ h2 {
   .persona-image {
     height: 100%;
     width: 100%;
+    object-fit: contain;
   }
 }
 

@@ -7,7 +7,8 @@
     "build": "npm run build:css && npm run build:js && npm run build:11ty",
     "build:css": "postcss src/styles/input.scss -o _site/assets/css/style.css",
     "build:css:watch": "postcss src/styles/input.scss -o _site/assets/css/style.css --watch",
-    "build:js": "vite build",
+    "build:js:legacy": "vite build",
+    "build:js": "vite build --config vite.config.modern.js",
     "build:js:dev": "vite build --mode development",
     "build:ts": "tsc",
     "build:11ty": "eleventy",
@@ -33,6 +34,7 @@
   "dependencies": {
     "@11ty/eleventy": "^3.1.1",
     "@11ty/eleventy-img": "^6.0.4",
+    "eleventy-plugin-seo": "^0.5.2",
     "gsap": "^3.13.0",
     "markdown-it": "^14.1.0",
     "posthog-js": "^1.255.1"
@@ -42,6 +44,7 @@
     "@vitejs/plugin-legacy": "^6.1.1",
     "autoprefixer": "^10.4.16",
     "concurrently": "^9.2.0",
+    "cssnano": "^7.0.7",
     "postcss": "^8.4.32",
     "postcss-cli": "^11.0.1",
     "sass": "^1.69.5",

@@ -24,7 +24,7 @@ module.exports = async function (eleventyConfig) {
 
       let metadata = await Image.default(src, {
         widths: [300, 600, 900, 1200],
-        formats: ["webp", "jpeg"],
+        formats: ["webp", "jpeg", "svg"],
         outputDir: "_site/assets/images/processed/",
         urlPath: "/assets/images/processed/",
       });
@@ -68,8 +68,73 @@ module.exports = async function (eleventyConfig) {
     }
   });
 
-  // Copy assets
-  eleventyConfig.addPassthroughCopy("src/assets");
+  // SEO data filter for page-specific SEO
+  eleventyConfig.addFilter("seoData", function (pageData, globalData) {
+    const seoData = {
+      title: pageData.title || globalData.title,
+      description:
+        pageData.excerpt || pageData.description || globalData.description,
+      url: globalData.url + (pageData.url || ""),
+      author: globalData.author,
+      image: pageData.image || globalData.openGraph?.image,
+      imageWidth: 1200,
+      imageHeight: 630,
+      type: pageData.type || "website",
+      publishedTime: pageData.date,
+      modifiedTime: pageData.lastmod || pageData.date,
+    };
+
+    // Clean up undefined values
+    Object.keys(seoData).forEach((key) => {
+      if (seoData[key] === undefined) {
+        delete seoData[key];
+      }
+    });
+
+    return seoData;
+  });
+
+  // Dynamic OG Image shortcode
+  eleventyConfig.addShortcode(
+    "ogImage",
+    function (title, subtitle = "", imagePath = "/assets/images/og.jpg") {
+      const encodedTitle = encodeURIComponent(title);
+      const encodedSubtitle = encodeURIComponent(subtitle);
+
+      // For now, return the default image path
+      // In the future, you could integrate with a service like Cloudinary or similar
+      // to generate dynamic OG images
+      return imagePath;
+    }
+  );
+
+  // Sitemap generation
+  eleventyConfig.addCollection("sitemap", function (collectionApi) {
+    const siteUrl = "https://joseferreira.io";
+    const pages = collectionApi.getAll();
+
+    return pages
+      .filter((page) => !page.data.draft && page.data.tags !== "hidden")
+      .map((page) => ({
+        url: siteUrl + page.url,
+        lastmod: page.date ? page.date.toISOString() : new Date().toISOString(),
+        changefreq: page.data.changefreq || "monthly",
+        priority: page.data.priority || 0.5,
+      }));
+  });
+
+  // Copy assets with cache headers
+  eleventyConfig.addPassthroughCopy({
+    "src/assets": "assets",
+  });
+
+  // Add cache headers for static assets
+  eleventyConfig.addGlobalData("cacheHeaders", {
+    css: "public, max-age=31536000, immutable",
+    js: "public, max-age=31536000, immutable",
+    images: "public, max-age=31536000, immutable",
+    fonts: "public, max-age=31536000, immutable",
+  });
 
   // Watch targets
   eleventyConfig.addWatchTarget("./src/styles/");
