@@ -142,4 +142,4 @@ Once the visual language was defined in the UI Kit, we translated the new struct
 
 ![High fidelity prototype](/assets/cases/mobie/high.png)
 
-{{ figma("https://www.figma.com/proto/c3pO8vegBbQCUkHrWycsS2/Personal_MNAA?page-id=2%3A596&node-id=280-400&node-type=frame&viewport=-738%2C3523%2C0.55&t=LKHITdseNQHyKuej-1&scaling=scale-down&content-scaling=fixed")}}
+{{ figma("https://embed.figma.com/proto/PDnlSqN9q2gLvsEg4uQuEi/Mobi.E-Design-File--Copy-?page-id=6%3A5&node-id=1798-7978&viewport=567%2C1037%2C0.66&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1798%3A7978&embed-host=share")}}

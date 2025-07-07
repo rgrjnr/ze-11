@@ -290,4 +290,4 @@ Finally, it was time to bring the ideas to life. Building on insights from the p
 
 After refining the wireframes based on user feedback, the project moved into the high-fidelity wireframing phase. This stage focused on translating the improved structure and functionality into a visually accurate design, incorporating the final layout, branding elements, and interactive components to closely reflect the final user experience.
 
-{{ figma("https://www.figma.com/proto/c3pO8vegBbQCUkHrWycsS2/Personal_MNAA?page-id=2%3A596&node-id=280-400&node-type=frame&viewport=-738%2C3523%2C0.55&t=LKHITdseNQHyKuej-1&scaling=scale-down&content-scaling=fixed")}}
+{{ figma("https://embed.figma.com/proto/xR1mc6ZWmunasnjJ35Zuir/Food-App-Pingo-Doce--Copy-?page-id=884%3A4029&node-id=884-4141&viewport=744%2C1358%2C0.34&scaling=scale-down&content-scaling=fixed&starting-point-node-id=884%3A4141&show-proto-sidebar=1&embed-host=share", {"aspect-ratio": "9/16"})}}

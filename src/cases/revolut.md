@@ -337,3 +337,7 @@ To evaluate the effectiveness of our proposed solutions, we conducted usability 
 8 minutes and 10 seconds
 {% include "src/assets/cases/revolut/speed-fast.svg" %}
 </div>
+
+### Prototype
+
+{{ figma("https://embed.figma.com/proto/0l5cFufbURdYN1VvfB85Qd/Revolut-Design--Copy-?page-id=4%3A3&node-id=781-3350&viewport=608%2C158%2C0.17&scaling=scale-down&content-scaling=fixed&starting-point-node-id=64%3A541&show-proto-sidebar=1&embed-host=share", {"aspect-ratio": "9/16"})}}
