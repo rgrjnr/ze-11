@@ -30,7 +30,7 @@ The onboarding process spans around 28 screens, while account deletion can take 
 
 To better understand the pain points, we conducted six usability tests focused on both journeys. For the account creation flow, I mapped out a detailed user journey to highlight the key friction points identified.
 
-<div class="align-wide">
+<div class="align-wide hidden md:block">
 <div class="scroll-table">
     <table class="text-center">
         <tr>
@@ -159,7 +159,7 @@ At this stage, the **main objective** was to define the **structure and behavior
 
 To better understand the current landscape of digital banking onboarding and account cancellation experiences, we conducted a competitive analysis of five key players: N26, Wise, Monzo, Moey!, and Revolut. This comparison allowed us to identify best practices, recurring pain points, and areas where Revolut could improve its user experience. We focused on elements such as process clarity, navigation flexibility, and technical reliability across platforms.
 
-<div class="align-wide">
+<div class="align-wide hidden md:block">
 <div class="scroll-table">
 <table>
     <tr>

@@ -112,7 +112,7 @@ To shape our strategy, we began by outlining the task flow for the feature. This
 
 To define our strategy, we analyzed various cooking and recipe platforms to understand how they tackle portioning, recipe customization, and usability. Our goal was to identify both inspiration and opportunities for innovation. Below is a visual breakdown of our key takeaways:
 
-<div class="align-wide">
+<div class="align-wide hidden md:block">
 <div class="scroll-table">
     <table>
         <tr>
