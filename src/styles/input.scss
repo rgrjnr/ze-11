@@ -22,7 +22,10 @@ body {
   line-height: 1.5;
   background-color: var(--white);
   color: var(--black);
+}
 
+body,
+html {
   width: 100vw;
   overflow-x: hidden;
 }
@@ -140,6 +143,7 @@ h6 {
   left: 50%;
   transform: translateX(-50%);
   position: relative;
+  max-width: 60rem;
 
   img {
     margin: auto;
@@ -156,7 +160,11 @@ h6 {
   main.container {
     font-size: 1.25rem;
     line-height: 1.85;
-    font-size: 1.25rem;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
 
     table {
       font-size: 1rem;
@@ -264,6 +272,32 @@ h6 {
 
     h3 {
       font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 1.5rem;
+        margin-block: 2em 1em;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-block: 2em 1em;
+      }
+    }
+  }
+}
+
+.scroll-table {
+  overflow-x: auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .align-wide:has(.scroll-table) {
+    width: 100vw !important;
+    .scroll-table {
+      padding: 0;
     }
   }
 }

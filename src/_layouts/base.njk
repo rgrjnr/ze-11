@@ -18,13 +18,13 @@
         <script src="/dist/main.js" type="module"></script>
         {# <script nomodule src="/dist/main-legacy.js"></script> #}
         <!-- SEO Meta Tags -->
-        <meta name="description" content="{% if excerpt %}{{ excerpt }}{% else %}UX/UI Designer José Ferreira crafts accessible digital experiences—from museum sites to fintech—offering UX research, prototyping & design systems expertise.{% endif %}">
+        <meta name="description" content="{% if excerpt %}{{ excerpt }}{% else %}UX/UI Designer José Ferreira crafts accessible digital experiences; from museum sites to fintech; offering UX research, prototyping & design systems expertise.{% endif %}">
         <meta
         name="author" content="José Ferreira"> <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://joseferreira.io{{ page.url }}">
         <meta property="og:title" content="{% if title %}{{ title }} - José Ferreira{% else %}José Ferreira - UX/UI Designer{% endif %}">
-        <meta property="og:description" content="{% if excerpt %}{{ excerpt }}{% else %}UX/UI Designer José Ferreira crafts accessible digital experiences—from museum sites to fintech—offering UX research, prototyping & design systems expertise.{% endif %}">
+        <meta property="og:description" content="{% if excerpt %}{{ excerpt }}{% else %}UX/UI Designer José Ferreira crafts accessible digital experiences; from museum sites to fintech; offering UX research, prototyping & design systems expertise.{% endif %}">
         <meta
             property="og:image"
             content="https://joseferreira.io{% if image %}{{ image }}{% else %}/assets/images/og.jpg{% endif %}">
@@ -38,7 +38,7 @@
         <meta property="twitter:card" content="summary_large_image">
         <meta property="twitter:url" content="https://joseferreira.io{{ page.url }}">
         <meta property="twitter:title" content="{% if title %}{{ title }} - José Ferreira{% else %}José Ferreira - UX/UI Designer{% endif %}">
-        <meta property="twitter:description" content="{% if excerpt %}{{ excerpt }}{% else %}UX/UI Designer José Ferreira crafts accessible digital experiences—from museum sites to fintech—offering UX research, prototyping & design systems expertise.{% endif %}">
+        <meta property="twitter:description" content="{% if excerpt %}{{ excerpt }}{% else %}UX/UI Designer José Ferreira crafts accessible digital experiences; from museum sites to fintech; offering UX research, prototyping & design systems expertise.{% endif %}">
         <meta
             property="twitter:image"
             content="https://joseferreira.io{% if image %}{{ image }}{% else %}/assets/images/og.jpg{% endif %}">
@@ -57,7 +57,7 @@
                         <a href="mailto:hi@joseferreira.io" class="text-xl font-bold flex items-center gap-2">
                             {% include "src/assets/images/logo-email.svg" %} hi@joseferreira.io
                         </a>
-                        <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-4 hidden md:flex">
                             <a href="/" class="text-gray-600 hover:text-blue-600">Home</a>
                             <a href="/cases/" class="text-gray-600 hover:text-blue-600">Cases</a>
                         </div>

@@ -6,7 +6,16 @@ module.exports = async function (eleventyConfig) {
   const Image = await import("@11ty/eleventy-img");
 
   eleventyConfig.addPlugin(IdAttributePlugin);
-  eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+
+  // Configure the image transform plugin with proper settings
+  // eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+  //   // This ensures the plugin looks in the correct output directory
+  //   outputDir: "_site/assets/images/processed/",
+  //   urlPath: "/assets/images/processed/",
+  //   formats: ["webp", "jpeg"],
+  //   widths: [300, 600, 900, 1200],
+  //   filter: (src) => !src.endsWith(".svg"),
+  // });
 
   // Markdown filter
   const md = new MarkdownIt();
@@ -21,14 +30,17 @@ module.exports = async function (eleventyConfig) {
       if (!src) {
         return "";
       }
-
+      if (src.endsWith(".svg")) {
+        return `<img src="${
+          src.startsWith("/") ? src : "/" + src
+        }" alt="${alt}" class="${classes}" loading="lazy" decoding="async" />`;
+      }
       let metadata = await Image.default(src, {
         widths: [300, 600, 900, 1200],
-        formats: ["webp", "jpeg", "svg"],
+        formats: ["webp", "jpeg"],
         outputDir: "_site/assets/images/processed/",
         urlPath: "/assets/images/processed/",
       });
-
       let imageAttributes = {
         alt,
         sizes,
@@ -36,7 +48,6 @@ module.exports = async function (eleventyConfig) {
         decoding: "async",
         class: classes,
       };
-
       return Image.default.generateHTML(metadata, imageAttributes);
     }
   );

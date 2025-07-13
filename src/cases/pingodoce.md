@@ -16,11 +16,11 @@ image: /assets/cases/pingodoce/og.png
 
 The challenge was to help reduce food waste through a new app feature. Our solution was a portion calculator, designed to help users better plan their meals by adjusting ingredient quantities based on recipe type and cooking experience.
 
-Developed collaboratively, the project covered the full design process—from user research to prototyping—with the goal of creating a tool that is both sustainable and aligned with Pingo Doce’s brand values.
+Developed collaboratively, the project covered the full design process; from user research to prototyping; with the goal of creating a tool that is both sustainable and aligned with Pingo Doce’s brand values.
 
 ## Process
 
-{% include "src/assets/images/process.svg" %}
+<img src="/assets/images/process.svg" alt="Process diagram showing the design methodology" />
 
 ## Discovery
 
@@ -36,25 +36,25 @@ To better understand the problem, validate our chosen brand and feature, and def
 
 <div class="flex flex-col items-center">
     
-    {% include "src/assets/cases/pingodoce/9in10.svg" %}
+    <img src="/assets/cases/pingodoce/9in10.svg" alt="9 in 10 respondents reported difficulties with portioning" />
     
     <p class="!mb-8">9 in 10 respondents reported difficulties with portioning.</p>
     
-    {% include "src/assets/cases/pingodoce/7in10.svg" %}
+    <img src="/assets/cases/pingodoce/7in10.svg" alt="7 in 10 respondents reported difficulty when cooking for 4+ people" />
     
     7 in 10 respondents reported difficulty when cooking for 4+ people
 
     <div class="mt-16">
     <strong>65%</strong> Recipe websites
-        {% include "src/assets/cases/pingodoce/top-1.svg" %}
+        <img src="/assets/cases/pingodoce/top-1.svg" alt="Recipe websites icon" />
     </div>
     <div class="mt-8">
     <strong>59%</strong> Social media
-        {% include "src/assets/cases/pingodoce/top-2.svg" %}
+        <img src="/assets/cases/pingodoce/top-2.svg" alt="Social media icon" />
     </div>
     <div class="mt-8 mb-16">
     <strong>34%</strong> Supermarket websites
-        {% include "src/assets/cases/pingodoce/top-3.svg" %}
+        <img src="/assets/cases/pingodoce/top-3.svg" alt="Supermarket websites icon" />
     </div>
 
 Although 92% of people cook at least once a week, they only search for recipes online occasionally. Supermarket websites are among the top three places users search for recipes, yet the Pingo Doce app does not currently offer this functionality.
@@ -72,11 +72,11 @@ Although 92% of people cook at least once a week, they only search for recipes o
 4. **Scalable Recipes**
    Users value recipes that are easy to scale up or down, with accurate ingredient quantities per person and real-life kitchen measurements like spoons or cups.
 5. **Simple, Universal Units**
-   Many requested the use of everyday, intuitive measurements—like tablespoons and cups—over complex units such as grams, to make cooking more approachable.
+   Many requested the use of everyday, intuitive measurements; like tablespoons and cups; over complex units such as grams, to make cooking more approachable.
 
 ### Problem Statement
 
-Although most participants cook regularly—92% at least once per week—the majority experience recurring difficulties with portioning, especially when preparing meals for larger groups (4+ people). This issue affects 87% of respondents, with younger adults (18–35) and women making up the bulk of the affected audience.
+Although most participants cook regularly; 92% at least once per week; the majority experience recurring difficulties with portioning, especially when preparing meals for larger groups (4+ people). This issue affects 87% of respondents, with younger adults (18–35) and women making up the bulk of the affected audience.
 
 Despite frequent cooking, people only search for recipes online occasionally, relying mostly on recipe websites, social media, and supermarket platforms. When they do, they encounter recipes that are hard to scale, lack intuitive measurements, or don’t clearly indicate quantities per person.
 
@@ -106,14 +106,14 @@ needs=[ "Recipes that adjust easily to different serving sizes.",
 ## Strategy
 
 To shape our strategy, we began by outlining the task flow for the feature. This allowed us to clarify the essential steps for a smooth user experience, ensuring we included only what was necessary while eliminating any friction or redundant actions.
-![mna_2.png](/assets/cases/pingodoce/strategy.svg)
+<img src="/assets/cases/pingodoce/strategy.svg" alt="Strategy diagram showing the task flow for the portion calculator feature" />
 
 ### Competitive analysis
 
 To define our strategy, we analyzed various cooking and recipe platforms to understand how they tackle portioning, recipe customization, and usability. Our goal was to identify both inspiration and opportunities for innovation. Below is a visual breakdown of our key takeaways:
 
 <div class="align-wide">
-
+<div class="scroll-table">
     <table>
         <tr>
             <th>Platform</th>
@@ -235,7 +235,7 @@ To define our strategy, we analyzed various cooking and recipe platforms to unde
             <td>Add full integration between recipes and grocery planning</td>
         </tr>
     </table>
-
+</div>
 </div>
 
 ### Key Takeaways
@@ -243,29 +243,33 @@ To define our strategy, we analyzed various cooking and recipe platforms to unde
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center align-wide mb-16">
     {% macro recommendation(image, title, description) %}
     <div class="note justify-center h-full">
-        <img src="{{ image }}" class="mx-auto">
+        {% if image.endsWith('.svg') %}
+        <img src="{{ image | url }}" alt="{{ title }}" />
+        {% else %}
+        {% image image, title %}
+        {% endif %}
         <strong>{{ title }}</strong>
         <p class="text-sm" style="margin-block: 0;">{{ description }}</p>
     </div>
     {% endmacro %}
 
     {{ recommendation(
-
+        image="/assets/cases/pingodoce/01.svg",
         title="Clarity & Simplicity",
         description="Users prefer universal, visual measurements (e.g., cups, spoons) over grams."
     ) }}
     {{ recommendation(
-
+        image="/assets/cases/pingodoce/02.svg",
         title="Flexibility is Crucial",
         description="Many tools fall short by limiting serving adjustments or only giving proportional hints."
     ) }}
     {{ recommendation(
-
+        image="/assets/cases/pingodoce/03.svg",
         title="Recipe Adaptability",
-        description="It's not enough to scale ingredients—the app must adapt recipes while maintaining clarity."
+        description="It's not enough to scale ingredients; the app must adapt recipes while maintaining clarity."
     ) }}
     {{ recommendation(
-
+        image="/assets/cases/pingodoce/04.svg",
         title="Integration Adds Value",
         description="Merging features like shopping lists, nutrition info, and portion control adds real usability."
     ) }}
@@ -274,7 +278,7 @@ To define our strategy, we analyzed various cooking and recipe platforms to unde
 
 ### Wireframes
 
-![Wireframe](/assets/cases/pingodoce/wireframe.png)
+{% image "src/assets/cases/pingodoce/wireframe.png", "Wireframe showing the portion calculator interface design" %}
 
 ## Design
 
@@ -282,9 +286,9 @@ Finally, it was time to bring the ideas to life. Building on insights from the p
 
 ### UI Kit
 
-![Design](/assets/cases/pingodoce/design-01.png)
-![Design](/assets/cases/pingodoce/design-02.png)
-![Design](/assets/cases/pingodoce/design-03.png)
+{% image "src/assets/cases/pingodoce/design-01.png", "UI Kit showing color palette and design system" %}
+{% image "src/assets/cases/pingodoce/design-02.png", "UI Kit showing typography and component design" %}
+{% image "src/assets/cases/pingodoce/design-03.png", "UI Kit showing iconography and interface elements" %}
 
 ### High Fidelity Prototype
 

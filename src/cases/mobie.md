@@ -14,21 +14,21 @@ image: /assets/cases/mobie/og.png
 
 Mobi.E is Portugal's national electric mobility network, responsible for managing and promoting the public charging infrastructure for electric vehicles (EVs). As EV adoption continues to rise, the accessibility and clarity of information provided through digital platforms is crucial to supporting a smooth user experience.
 
-For this project, we focused specifically on improving the user experience of the Mobi.E website. Our aim was to address key usability challenges related to how users search for information, understand charging procedures, and access support. By taking a user-centered approach, we worked to simplify navigation, clarify content, and enhance the overall efficiency of the website — helping both new and experienced users make the most of the platform.
+For this project, we focused specifically on improving the user experience of the Mobi.E website. Our aim was to address key usability challenges related to how users search for information, understand charging procedures, and access support. By taking a user-centered approach, we worked to simplify navigation, clarify content, and enhance the overall efficiency of the website ; helping both new and experienced users make the most of the platform.
 
 ## Process
 
-{% include "src/assets/images/process.svg" %}
+<img src="/assets/images/process.svg" alt="Process diagram showing the design methodology" />
 
 ## Discovery
 
-At the time of the project, Mobi.E was growing alongside the rise of electric vehicle usage in Portugal. As the main public EV charging platform, its website was a crucial tool for users — from newcomers to regular drivers. However, despite being functionally complete, the site had major usability issues: users struggled to find information, understand key processes, and navigate effectively.
+At the time of the project, Mobi.E was growing alongside the rise of electric vehicle usage in Portugal. As the main public EV charging platform, its website was a crucial tool for users ; from newcomers to regular drivers. However, despite being functionally complete, the site had major usability issues: users struggled to find information, understand key processes, and navigate effectively.
 
-To better understand user needs and pain points, we began this phase with a comprehensive assessment of the current experience — including Desk Research, stakeholder interviews, Heuristic Evaluation and a questionnaire — allowing us to define clear opportunities for improving the clarity, accessibility, and overall user experience of the site.
+To better understand user needs and pain points, we began this phase with a comprehensive assessment of the current experience ; including Desk Research, stakeholder interviews, Heuristic Evaluation and a questionnaire ; allowing us to define clear opportunities for improving the clarity, accessibility, and overall user experience of the site.
 
 ### Desk Research and User Interviews
 
-To understand users' real challenges with Mobi.E and the public EV charging network, we conducted desk research across platforms like Portal da Queixa, Reddit, and YouTube, identifying common frustrations and misconceptions. We also interviewed EV users to gain deeper insight into their daily experiences. A key theme that emerged was confusion around Mobi.E's responsibilities, often resulting in misplaced blame and damage to its public image — a major issue we sought to address in our redesign.
+To understand users' real challenges with Mobi.E and the public EV charging network, we conducted desk research across platforms like Portal da Queixa, Reddit, and YouTube, identifying common frustrations and misconceptions. We also interviewed EV users to gain deeper insight into their daily experiences. A key theme that emerged was confusion around Mobi.E's responsibilities, often resulting in misplaced blame and damage to its public image ; a major issue we sought to address in our redesign.
 
 ![Discovery phase showing user research and analysis](/assets/cases/mobie/research.png)
 
@@ -114,9 +114,7 @@ needs=[
 ]
 ) }}
 
-## Strategy
-
-Following the discovery phase, we focused on restructuring the website to address key user pain points—mainly confusion around Mobi.E’s role and scattered, technical information. We created a clearer site map, reorganized content based on user needs, and simplified language to make the platform more accessible. A dedicated microsite was also designed to help users better understand Mobi.E’s mission and services.
+Following the discovery phase, we focused on restructuring the website to address key user pain points; mainly confusion around Mobi.E’s role and scattered, technical information. We created a clearer site map, reorganized content based on user needs, and simplified language to make the platform more accessible. A dedicated microsite was also designed to help users better understand Mobi.E’s mission and services.
 
 ### Sitemap
 

@@ -1,5 +1,5 @@
 ---
-title: "From Hello to Goodbye: Optimising Revolut’s User Journey"
+title: "From Hello to Goodbye: Optimising Revolut's User Journey"
 layout: cases.njk
 tags: cases
 excerpt: This project focused on improving the account management experience within the Revolut app, specifically the creation and deletion of accounts.This is a sample case study demonstrating the structure and content format
@@ -12,7 +12,7 @@ image: /assets/cases/revolut/og.png
 
 ## Overview
 
-As part of a UX/UI design challenge, this project focused on improving the account management experience within the Revolut app, specifically the creation and deletion of accounts. While Revolut is known for its sleek interface and wide range of digital banking features, we identified pain points in how users onboard and offboard—crucial moments that can shape their overall trust in the platform.
+As part of a UX/UI design challenge, this project focused on improving the account management experience within the Revolut app, specifically the creation and deletion of accounts. While Revolut is known for its sleek interface and wide range of digital banking features, we identified pain points in how users onboard and offboard; crucial moments that can shape their overall trust in the platform.
 
 Our objective was to streamline the account creation process for new users and make account deletion clearer and more transparent, ensuring both actions felt secure, intuitive, and user-friendly.
 
@@ -20,76 +20,80 @@ From research and usability analysis to prototyping and testing, this project de
 
 ## Process
 
-{% include "src/assets/images/process.svg" %}
+<img src="/assets/images/process.svg" alt="Process diagram showing the design methodology" />
 
 ## Discovery
 
-Revolut is one of the world’s leading digital banking platforms, recognized for its sleek design and diverse features—from international transfers to budgeting tools and crypto trading. However, key user flows like onboarding and account cancellation still pose significant usability challenges.
+Revolut is one of the world’s leading digital banking platforms, recognized for its sleek design and diverse features; from international transfers to budgeting tools and crypto trading. However, key user flows like onboarding and account cancellation still pose significant usability challenges.
 
 The onboarding process spans around 28 screens, while account deletion can take anywhere from 4 to 9 steps, depending on the user’s status and account balance. For a platform known for speed and simplicity, these flows often feel unnecessarily complex.
 
 To better understand the pain points, we conducted six usability tests focused on both journeys. For the account creation flow, I mapped out a detailed user journey to highlight the key friction points identified.
 
-<table class="align-wide text-center">
-    <tr>
-        <th>Scenario</th>
-        <th>Sign In</th>
-        <th>Address</th>
-        <th>Professional Area</th>
-        <th>Go back</th>
-        <th>Photography</th>
-        <th>Citizenship</th>
-        <th>Identification</th>
-        <th>Card of choice</th>
-    </tr>
-    <tr>
-        <td style="text-transform: uppercase; font-size: 80%; letter-spacing: 0.1em;">Happy</td>
-        <td>🙂</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>🙂</td>
-        <td></td>
-        <td></td>
-        
-    </tr>
-    <tr>
-        <td style="text-transform: uppercase; font-size: 80%; letter-spacing: 0.1em;">Neutral</td>
-        <td></td>
-        <td>😐</td>
-        <td></td>
-        <td></td>
-        <td>😐</td>
-        <td></td>
-        <td>😐</td>
-        <td>😐</td>
-        
-    </tr>
-    <tr>
-        <td style="text-transform: uppercase; font-size: 80%; letter-spacing: 0.1em;">Unhappy</td>
-        <td></td>
-        <td></td>
-        <td>☹️</td>
-        <td>☹️</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        
-    </tr>
-    <tr style="line-height: 1.1">
-        <td style="text-transform: uppercase; font-size: 80%; letter-spacing: 0.1em;">Pain Points</td>
-        <td>I like the opening animations!</td>
-        <td>It is very complex to find the correct address...</td>
-        <td>I can't find my area. I feel excluded!</td>
-        <td>I can't go back to the previous page!</td>
-        <td>I don't really like taking pictures</td>
-        <td>I like it to be dynamic!</td>
-        <td>Why do I have to give so much information?</td>
-        <td>Do I have to choose a physical card now?</td>
-    </tr>
-</table>
+<div class="align-wide">
+<div class="scroll-table">
+    <table class="text-center">
+        <tr>
+            <th>Scenario</th>
+            <th>Sign In</th>
+            <th>Address</th>
+            <th>Professional Area</th>
+            <th>Go back</th>
+            <th>Photography</th>
+            <th>Citizenship</th>
+            <th>Identification</th>
+            <th>Card of choice</th>
+        </tr>
+        <tr>
+            <td style="text-transform: uppercase; font-size: 80%; letter-spacing: 0.1em;">Happy</td>
+            <td>🙂</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>🙂</td>
+            <td></td>
+            <td></td>
+    
+        </tr>
+        <tr>
+            <td style="text-transform: uppercase; font-size: 80%; letter-spacing: 0.1em;">Neutral</td>
+            <td></td>
+            <td>😐</td>
+            <td></td>
+            <td></td>
+            <td>😐</td>
+            <td></td>
+            <td>😐</td>
+            <td>😐</td>
+    
+        </tr>
+        <tr>
+            <td style="text-transform: uppercase; font-size: 80%; letter-spacing: 0.1em;">Unhappy</td>
+            <td></td>
+            <td></td>
+            <td>☹️</td>
+            <td>☹️</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+    
+        </tr>
+        <tr style="line-height: 1.1">
+            <td style="text-transform: uppercase; font-size: 80%; letter-spacing: 0.1em;">Pain Points</td>
+            <td>I like the opening animations!</td>
+            <td>It is very complex to find the correct address...</td>
+            <td>I can't find my area. I feel excluded!</td>
+            <td>I can't go back to the previous page!</td>
+            <td>I don't really like taking pictures</td>
+            <td>I like it to be dynamic!</td>
+            <td>Why do I have to give so much information?</td>
+            <td>Do I have to choose a physical card now?</td>
+        </tr>
+    </table>
+    </div>
+</div>
 
 While Revolut offers a relatively straightforward way to close an account within the app, the experience still raises questions and emotional reactions for users. To better understand how people navigate this flow, we mapped out the entire process and conducted usability tests to capture real user feedback. What follows is a step-by-step walkthrough of that experience, highlighting moments of clarity, confusion, and frustration along the way.
 
@@ -116,8 +120,8 @@ While Revolut offers a relatively straightforward way to close an account within
 
 ### Problem Statement
 
-While Revolut offers a feature-rich banking experience, two critical user flows—creating an account and closing
-one—present significant friction.
+While Revolut offers a feature-rich banking experience, two critical user flows; creating an account and closing
+one; present significant friction.
 During onboarding, users often feel overwhelmed by the excessive number of screens and the lack of flexibility in navigating the process. Issues like difficulty finding one's professional category, lack of inclusivity in options, and the inability to go back to previous steps lead to frustration and abandonment.
 On the other hand, the account cancellation journey, although shorter, suffers from poor visibility of key actions, lack of trust around data handling, and an unclear sense of closure. Users expressed doubt over whether their request was successfully completed and concern about what would happen to their stored data.
 These insights revealed a clear need to streamline both flows, enhance user guidance, and build greater trust and control at every step of the journey.
@@ -127,7 +131,7 @@ These insights revealed a clear need to streamline both flows, enhance user guid
 {{ persona(
 name="João Pedro",
 image="/assets/cases/revolut/persona.svg",
-bio="João is a 32-year-old freelance graphic designer based in São Paulo, Brazil, working with clients across Europe and North America. With a passion for travel and cultural exploration, he often takes advantage of his remote lifestyle to live and work from different countries. Balancing personal and professional responsibilities on the go, João relies on digital tools that offer speed, simplicity, and flexibility. He’s tech-savvy, values clear communication, and seeks solutions that streamline his daily routines—especially when it comes to managing his finances across borders.",
+bio="João is a 32-year-old freelance graphic designer based in São Paulo, Brazil, working with clients across Europe and North America. With a passion for travel and cultural exploration, he often takes advantage of his remote lifestyle to live and work from different countries. Balancing personal and professional responsibilities on the go, João relies on digital tools that offer speed, simplicity, and flexibility. He’s tech-savvy, values clear communication, and seeks solutions that streamline his daily routines; especially when it comes to managing his finances across borders.",
     gains=[
         "Manage both personal and professional finances in one place",
         "Avoid high fees on international payments",
@@ -155,7 +159,9 @@ At this stage, the **main objective** was to define the **structure and behavior
 
 To better understand the current landscape of digital banking onboarding and account cancellation experiences, we conducted a competitive analysis of five key players: N26, Wise, Monzo, Moey!, and Revolut. This comparison allowed us to identify best practices, recurring pain points, and areas where Revolut could improve its user experience. We focused on elements such as process clarity, navigation flexibility, and technical reliability across platforms.
 
-<table class="align-wide">
+<div class="align-wide">
+<div class="scroll-table">
+<table>
     <tr>
         <th>Brand</th>
         <th>Positive Points</th>
@@ -267,10 +273,12 @@ To better understand the current landscape of digital banking onboarding and acc
         </td>
     </tr>
 </table>
+</div>
+</div>
 
 ### Wireframes
 
-We started with paper wireframes to quickly sketch and explore possible directions for improving both the onboarding and account cancellation flows. One of our initial ideas was to introduce a progress bar in the onboarding process, breaking it down into four distinct stages to help users feel more guided. However, through early sketches and reflection, we realized this approach wasn’t effective—given the high number of screens involved, the progress indication would not accurately reflect the user’s true advancement. This phase was crucial in identifying such issues early on and setting a clear foundation for our digital wireframes.
+We started with paper wireframes to quickly sketch and explore possible directions for improving both the onboarding and account cancellation flows. One of our initial ideas was to introduce a progress bar in the onboarding process, breaking it down into four distinct stages to help users feel more guided. However, through early sketches and reflection, we realized this approach wasn’t effective; given the high number of screens involved, the progress indication would not accurately reflect the user’s true advancement. This phase was crucial in identifying such issues early on and setting a clear foundation for our digital wireframes.
 
 ![Paper wireframes](/assets/cases/revolut/paper.png)
 
@@ -280,7 +288,7 @@ Since we were tackling two different processes, we also explored early ideas for
 
 ## Design
 
-With the strategy clearly defined and initial ideas tested, we transitioned into the Design phase. This stage was focused on building clear, intuitive interfaces that improved the user experience across both onboarding and account cancellation flows. In terms of visual design, we chose to follow Revolut’s existing UI kit—adhering to the brand’s color palette, typography, and overall aesthetic. Our aim wasn’t to reinvent the visuals, but rather to make thoughtful UX-focused adjustments that simplify and enhance the overall user journey.
+With the strategy clearly defined and initial ideas tested, we transitioned into the Design phase. This stage was focused on building clear, intuitive interfaces that improved the user experience across both onboarding and account cancellation flows. In terms of visual design, we chose to follow Revolut’s existing UI kit; adhering to the brand’s color palette, typography, and overall aesthetic. Our aim wasn’t to reinvent the visuals, but rather to make thoughtful UX-focused adjustments that simplify and enhance the overall user journey.
 
 ### UI Kit
 

@@ -2,7 +2,7 @@
 title: "From Clunky to Curated: Reimagining a Museum's Digital Welcome"
 layout: cases.njk
 tags: cases
-excerpt: Redesigned the digital experience for the Museu Nacional de Arte Antiga, one of Portugal’s most iconic art museums. Focused on improving navigation, accessibility, and visitor engagement through a user-centered approach—featuring custom visit itineraries, clearer information architecture, and a modern, responsive design.
+excerpt: Redesigned the digital experience for the Museu Nacional de Arte Antiga, one of Portugal’s most iconic art museums. Focused on improving navigation, accessibility, and visitor engagement through a user-centered approach; featuring custom visit itineraries, clearer information architecture, and a modern, responsive design.
 image: /assets/cases/mnaa/og.png
 ---
 
@@ -18,7 +18,7 @@ This project focused on **redesigning the digital experience** for the Museu Nac
 
 ## Process
 
-{% include "src/assets/images/process.svg" %}
+<img src="/assets/images/process.svg" alt="Process diagram showing the design methodology" />
 
 ## Discovery
 
@@ -26,7 +26,7 @@ According to the "Público do Museu Nacional de Arte Antiga" report, the majorit
 
 To build on these insights, a **thematic analysis of online reviews** was conducted, alongside an **evaluation of competitor websites**, revealing key usability issues and opportunities for improvement. These findings supported the creation of a user persona, the definition of a clear problem statement, and the identification of areas where the website could deliver a more distinctive and user-centered experience.
 
-![Discovery phase showing user research and analysis](/assets/cases/mnaa/discovery.png)
+{% image "src/assets/cases/mnaa/discovery.png", "Discovery phase showing user research and analysis" %}
 
 ### Key Issues Identified
 
@@ -49,7 +49,7 @@ Visitors struggle to plan and enjoy their museum visits due to **unclear communi
 
 Next, it was essential to evaluate the museum’s current website to identify usability issues through a **heuristic evaluation**.
 
-![Heuristic evaluation results showing usability issues](/assets/cases/mnaa/heuristic.png)
+{% image "src/assets/cases/mnaa/heuristic.png", "Heuristic evaluation results showing usability issues" %}
 
 <div class="flex flex-col md:flex-row gap-4 my-16">
     {{ note(
@@ -69,7 +69,11 @@ Critically, the homepage **fails to surface essential visitor information** such
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-center">
     {% macro recommendation(image, title, description) %}
     <div class="note justify-center h-full">
-        <img src="{{ image }}" alt="{{ title }}" class="mx-auto">
+        {% if image.endsWith('.svg') %}
+        <img src="{{ image | url }}" alt="{{ title }}" class="mx-auto"/>
+        {% else %}
+        {% image image, title %}
+        {% endif %}
         <strong>{{ title }}</strong>
         <p class="text-sm" style="margin-block: 0;">{{ description }}</p>
     </div>
@@ -123,25 +127,25 @@ needs=["Maria values museums that offer engaging local history and cultural cont
 
 At this stage, the **main objective** was to define the **structure and behavior of the new website**, with a particular focus on the homepage. After identifying key structural issues in the existing website, a revised site map was developed to establish a clearer, more intuitive navigation framework.
 
-![Site map showing improved navigation structure](/assets/cases/mnaa/sitemap.svg)
+<img src="/assets/cases/mnaa/sitemap.svg" alt="Site map showing improved navigation structure" />
 
 ### Competitive analysis
 
 Once the **overall layout and key components** were established, a **competitive analysis** was conducted to examine how other museum websites addressed similar challenges. **Insights gathered** **from this research** were combined with **internal brainstorming sessions**, leading to a set of **ideas tailored to the specific needs of MNAA and its users.**
 
-![Competitive analysis comparing museum websites](/assets/cases/mnaa/competitive-analysis.png)
+{% image "src/assets/cases/mnaa/competitive-analysis.png", "Competitive analysis comparing museum websites" %}
 
 ### Wireframes
 
 Next, **paper wireframes** were created to visualize early ideas with low commitment. This approach allowed for **quick iterations** and **easy adjustments** as the concept evolved.
 
-![Paper wireframes showing initial design concepts](/assets/cases/mnaa/paper.png)
+{% image "src/assets/cases/mnaa/paper.png", "Paper wireframes showing initial design concepts" %}
 
 ### Low-fidelity prototype
 
 The concept was then translated into an interactive **low-fidelity digital prototype**, allowing for early testing of structure, navigation, and user flow.
 
-![Low fidelity digital prototype for user testing](/assets/cases/mnaa/low.png)
+{% image "src/assets/cases/mnaa/low.png", "Low fidelity digital prototype for user testing" %}
 
 ## Design
 
@@ -149,7 +153,7 @@ Finally, it was time to **bring the ideas to life**. Building on **insights from
 
 ### UI Kit
 
-![UI Kit showing design system components](/assets/cases/mnaa/ui.png)
+{% image "src/assets/cases/mnaa/ui.png", "UI Kit showing design system components" %}
 
 ### High Fidelity Prototype
 
