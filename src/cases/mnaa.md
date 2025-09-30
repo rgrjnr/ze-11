@@ -12,7 +12,7 @@ image: /assets/cases/mnaa/og.png
 
 ## Overview
 
-The **Museu Nacional de Arte Antiga (MNAA)** is Portugal’s **leading museum for pr`e-19th-century art**. Located in Lisbon, it houses a vast collection of Portuguese and European works, **reflecting the country's rich cultural and artistic heritage.**
+The **Museu Nacional de Arte Antiga (MNAA)** is Portugal’s **leading museum for pré-19th-century art**. Located in Lisbon, it houses a vast collection of Portuguese and European works, **reflecting the country's rich cultural and artistic heritage.**
 
 This project focused on **redesigning the digital experience** for the Museu Nacional de Arte Antiga (MNAA), Portugal’s premier museum for pre-modern art. As a **UX/UI Designer**, I led the **user research**, **ideation**, and **interface design** with the **goal** of making the website more **user-friendly**, **informative**, and **inclusive**.
 
