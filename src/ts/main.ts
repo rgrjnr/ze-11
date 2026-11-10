@@ -112,20 +112,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.querySelectorAll(".page-layer").forEach((layer) => {
-    //get height of the .more element and apply as a css variable --content-height
-    const more = layer.querySelector(".more");
-    const title = layer.querySelector(".inner-page-title");
-    if (more && title) {
-      (layer as HTMLElement).style.setProperty(
-        "--content-height",
-        `${more.clientHeight}px`
-      );
-      (layer as HTMLElement).style.setProperty(
-        "--title-height",
-        `${title.clientHeight}px`
-      );
-    }
+  // Expose the height of each case's hidden content (.more) and title as CSS
+  // variables so the hover can expand to fit. Re-measure whenever they resize:
+  // the cover image usually loads after DOMContentLoaded, and fonts and the
+  // viewport width change heights too.
+  document.querySelectorAll<HTMLElement>(".page-layer").forEach((layer) => {
+    const more = layer.querySelector<HTMLElement>(".more");
+    const title = layer.querySelector<HTMLElement>(".inner-page-title");
+    if (!more || !title) return;
+
+    const measure = () => {
+      layer.style.setProperty("--content-height", `${more.offsetHeight}px`);
+      layer.style.setProperty("--title-height", `${title.offsetHeight}px`);
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(more);
+    observer.observe(title);
   });
 });
 
