@@ -4,6 +4,8 @@ layout: cases.njk
 tags: cases
 excerpt: This project focused on improving the Mobi.E website's user experience by addressing key challenges in information discovery, charging procedures, and support access. Through user-centered design, we simplified navigation and content to create a more efficient platform for both new and experienced electric vehicle users.
 image: /assets/cases/mobie/og.png
+logo: /assets/cases/mobie/logo.webp
+company: Mobi.E
 ---
 
 {% from "components/note.njk" import note %}

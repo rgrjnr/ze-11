@@ -1,0 +1,38 @@
+{# One "folder page" in the My Work stack. Without a url it renders as a
+   non-clickable placeholder; without an image it shows an "under construction" cover. #}
+{% macro pageLayer(title, excerpt, url, image) %}
+    {% set tag = "a" if url else "div" %}
+    <{{ tag }} {% if url %}href="{{ url }}"{% endif %} class="page-layer{% if not url %} page-layer--placeholder{% endif %}">
+        <div class="container">
+            <div class="inner-page-layer">
+                <div class="more">
+                    {% if image %}
+                        <img src="{{ image }}" alt="{{ title }}" class="inner-page-image"/>
+                    {% else %}
+                        <div class="inner-page-image construction-cover" aria-hidden="true">
+                            <span class="construction-label">Coming soon</span>
+                        </div>
+                    {% endif %}
+                    <p class="inner-page-excerpt">{{ excerpt }}</p>
+                </div>
+                <h3 class="text-2xl font-medium inner-page-title flex justify-between items-center">{{ title }}
+                    <svg width="47" height="25" viewBox="0 0 47 25" fill="none" xmlns="http://www.w3.org/2000/svg" class="inner-page-arrow" aria-hidden="true">
+                        <path
+                            d="M2 12.8509C2.16807 12.9632 5.86826 13.0211 11.5955 12.993C15.1594 12.9755 17.5189 12.7386 22.458 12.5122C25.8806
+                                12.3554 31.1788 12.2859 34.1583 12.2C37.1378 12.114 37.642 12.0579 38.7001 12.0289C39.7582 12 41.3549 12 43 12"
+                            stroke="black"
+                            stroke-width="4"
+                            stroke-linecap="round"/>
+                        <path
+                            d="M30.5515 2.29688C31.4304 2.46396 34.4282 4.13991 37.3994 6.08675C40.8088 8.32069 42.0487 9.7146 43.6007
+                                10.7741C44.0116 11.0546 44.4384 11.4867 44.5327 11.7437C44.8242 12.5383 41.7195 13.5931 36.1036 18.5235C34.63 19.7602
+                                33.7431 20.5197 32.8151 21.3627C32.4128 21.7045 32.15 21.8716 31.8791 22.2969"
+                            stroke="black"
+                            stroke-width="4"
+                            stroke-linecap="round"/>
+                    </svg>
+                </h3>
+            </div>
+        </div>
+    </{{ tag }}>
+{% endmacro %}

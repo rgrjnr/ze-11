@@ -1,0 +1,65 @@
+{# Conceptual Projects: university case studies shown as pinned polaroids.
+   Each polaroid has a natural tilt and straightens on hover (see .polaroid in input.scss).
+   Set `logo:` in a case's front matter to show the company logo as a sticker;
+   without it a grey placeholder sticker is shown. #}
+<ol class="polaroid-grid">
+    {% for study in collections.cases %}
+        <li class="polaroid-wrapper">
+            <a href="{{ study.url }}" class="polaroid">
+                <svg
+                    width="40"
+                    height="52"
+                    viewBox="0 0 40 52"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    class="polaroid-pin">
+                    <defs>
+                        <radialGradient id="pin-head-{{ loop.index }}" cx="0.35" cy="0.3" r="0.75">
+                            <stop offset="0" stop-color="#fff" stop-opacity="0.85"/>
+                            <stop offset="0.25" style="stop-color: var(--pin)"/>
+                            <stop offset="1" style="stop-color: var(--pin-dark)"/>
+                        </radialGradient>
+                        <linearGradient id="pin-needle-{{ loop.index }}" x1="0" x2="1" y1="0" y2="0">
+                            <stop offset="0" stop-color="#8a8a8a"/>
+                            <stop offset="0.5" stop-color="#e6e6e6"/>
+                            <stop offset="1" stop-color="#7a7a7a"/>
+                        </linearGradient>
+                    </defs>
+                    {# needle shadow on the photo #}
+                    <ellipse cx="25" cy="47" rx="6" ry="2.2" fill="#000" opacity="0.18"/>
+                    {# needle #}
+                    <path d="M19 26L20.2 48L21.4 26Z" fill="url(#pin-needle-{{ loop.index }})"/>
+                    {# base collar #}
+                    <ellipse cx="20.2" cy="25.5" rx="9" ry="3.2" style="fill: var(--pin-dark)"/>
+                    {# body #}
+                    <path d="M14 12H26.4L28 24.5C28 26.4 24.5 27.6 20.2 27.6C15.9 27.6 12.4 26.4 12.4 24.5Z" fill="url(#pin-head-{{ loop.index }})"/>
+                    {# top cap #}
+                    <ellipse cx="20.2" cy="10" rx="11" ry="7.5" fill="url(#pin-head-{{ loop.index }})"/>
+                    <ellipse cx="16" cy="7.2" rx="3.6" ry="1.8" fill="#fff" opacity="0.7"/>
+                </svg>
+
+                <div class="polaroid-photo">
+                    <img src="{{ study.data.image }}" alt="" loading="lazy"/>
+                    <span class="polaroid-sticker">
+                        {% if study.data.logo %}
+                            <img src="{{ study.data.logo }}" alt="{{ study.data.company or '' }}" loading="lazy"/>
+                        {% endif %}
+                    </span>
+                </div>
+
+                <div class="polaroid-caption">
+                    <span class="polaroid-number">{{ "0" if loop.index < 10 }}{{ loop.index }}</span>
+                    <h3 class="polaroid-title">{{ study.data.title }}</h3>
+                    <p class="polaroid-excerpt">{{ study.data.excerpt }}</p>
+                    <span class="polaroid-more">Read case study
+                        <svg width="28" height="15" viewBox="0 0 47 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M2 12.8509C2.16807 12.9632 5.86826 13.0211 11.5955 12.993C15.1594 12.9755 17.5189 12.7386 22.458 12.5122C25.8806 12.3554 31.1788 12.2859 34.1583 12.2C37.1378 12.114 37.642 12.0579 38.7001 12.0289C39.7582 12 41.3549 12 43 12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M30.5515 2.29688C31.4304 2.46396 34.4282 4.13991 37.3994 6.08675C40.8088 8.32069 42.0487 9.7146 43.6007 10.7741C44.0116 11.0546 44.4384 11.4867 44.5327 11.7437C44.8242 12.5383 41.7195 13.5931 36.1036 18.5235C34.63 19.7602 33.7431 20.5197 32.8151 21.3627C32.4128 21.7045 32.15 21.8716 31.8791 22.2969" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+</ol>

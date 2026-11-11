@@ -668,3 +668,198 @@ h2 {
     }
   }
 }
+
+/* My Work placeholders (components/page-layer.njk without url/image) */
+.page-layer--placeholder {
+  cursor: default;
+}
+
+.construction-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1200 / 630;
+  background: repeating-linear-gradient(
+    -45deg,
+    #fdffc0 0 2.5rem,
+    var(--black) 2.5rem 5rem
+  );
+
+  .construction-label {
+    padding: 0.5rem 1.25rem;
+    background: var(--white);
+    border: 3px solid var(--black);
+    font-family: degular, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+  }
+}
+
+/* Conceptual Projects: pinned polaroids (components/studies.njk) */
+.polaroid-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem 2rem;
+  max-width: 56rem;
+  margin: 4rem auto 0;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4.5rem 3.5rem;
+  }
+}
+
+.polaroid-wrapper {
+  --tilt: -3deg;
+  --pin: #ff4d4d;
+  --pin-dark: #a3121b;
+
+  &:nth-child(4n + 2) {
+    --tilt: 2.5deg;
+    --pin: #3d8bff;
+    --pin-dark: #0f3f9e;
+  }
+
+  &:nth-child(4n + 3) {
+    --tilt: -2deg;
+    --pin: #ffd23d;
+    --pin-dark: #b07d00;
+  }
+
+  &:nth-child(4n + 4) {
+    --tilt: 3deg;
+    --pin: #3dc46a;
+    --pin-dark: #136b31;
+  }
+}
+
+.polaroid {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0.875rem 0.875rem 1.5rem;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.06),
+    0 20px 28px -14px rgba(0, 0, 0, 0.2);
+  /* Full-width polaroids on phones get half the tilt so the text stays easy to read */
+  transform: rotate(calc(var(--tilt) / 2));
+  transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+
+  @media (min-width: 640px) {
+    padding: 1rem 1rem 1.75rem;
+    transform: rotate(var(--tilt));
+  }
+
+  /* After the media query so it wins over the tilt at every width */
+  &:hover,
+  &:focus-visible {
+    transform: rotate(0deg) translateY(-0.25rem);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 12px 20px rgba(0, 0, 0, 0.08),
+      0 32px 40px -18px rgba(0, 0, 0, 0.26);
+
+    .polaroid-more svg {
+      transform: translateX(0.25rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.polaroid-pin {
+  position: absolute;
+  z-index: 2;
+  top: -1.6rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(10deg);
+  filter: drop-shadow(1px 2px 1.5px rgba(0, 0, 0, 0.25));
+}
+
+.polaroid-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #eee;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Company logo sticker: 8px radius square with a 4px white outer stroke.
+   Grey until a `logo:` image is set in the case front matter. */
+.polaroid-sticker {
+  position: absolute;
+  right: 0.75rem;
+  bottom: -1.75rem;
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #c9c9c9;
+  box-shadow: 0 0 0 4px #fff, 0 4px 10px 2px rgba(0, 0, 0, 0.18);
+  transform: rotate(6deg);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.polaroid-caption {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem 0.375rem 0;
+}
+
+.polaroid-number {
+  font-family: degular, sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  opacity: 0.45;
+}
+
+.polaroid-title {
+  margin-top: 0.25rem;
+  padding-right: 4.25rem;
+  font-size: 1.125rem;
+  line-height: 1.15;
+
+  @media (min-width: 640px) {
+    padding-right: 0;
+  }
+}
+
+.polaroid-excerpt {
+  margin-top: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.polaroid-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  font-weight: 700;
+
+  svg {
+    transition: transform 0.2s ease-in-out;
+  }
+}

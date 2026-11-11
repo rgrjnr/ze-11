@@ -4,6 +4,8 @@ layout: cases.njk
 tags: cases
 excerpt: Redesigned the digital experience for the Museu Nacional de Arte Antiga, one of Portugal’s most iconic art museums. Focused on improving navigation, accessibility, and visitor engagement through a user-centered approach; featuring custom visit itineraries, clearer information architecture, and a modern, responsive design.
 image: /assets/cases/mnaa/og.png
+logo: /assets/cases/mnaa/logo.webp
+company: MNAA
 ---
 
 {% from "components/note.njk" import note %}
