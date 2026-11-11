@@ -4,6 +4,8 @@ layout: cases.njk
 tags: cases
 excerpt: This project focused on improving the account management experience within the Revolut app, specifically the creation and deletion of accounts.This is a sample case study demonstrating the structure and content format
 image: /assets/cases/revolut/og.png
+logo: /assets/cases/revolut/logo.webp
+company: Revolut
 ---
 
 {% from "components/note.njk" import note %}

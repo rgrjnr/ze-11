@@ -4,6 +4,8 @@ layout: cases.njk
 tags: cases
 excerpt: The challenge was to help reduce food waste through a new app feature. Our solution was a portion calculator, designed to help users better plan their meals by adjusting ingredient quantities based on recipe type and cooking experience.
 image: /assets/cases/pingodoce/og.png
+logo: /assets/cases/pingodoce/logo.webp
+company: Pingo Doce
 ---
 
 {% from "components/note.njk" import note %}
