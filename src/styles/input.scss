@@ -20,7 +20,17 @@ body {
   font-family: mundial, sans-serif;
   font-weight: 500;
   line-height: 1.5;
-  background-color: var(--white);
+  /* Dotted paper, like a FigJam board (from the Figma hero redesign) */
+  --paper: #f5f5f5;
+  --paper-dot: #cfcfcf;
+  background-color: var(--paper);
+  background-image: radial-gradient(
+    circle at center,
+    var(--paper-dot) 1px,
+    transparent 1.5px
+  );
+  background-size: 16px 16px;
+  background-position: 8px 8px;
   color: var(--black);
 }
 
