@@ -745,7 +745,7 @@ h2 {
   height: 100%;
   padding: 0.875rem 0.875rem 1.5rem;
   background: #fff;
-  border-radius: 2px;
+  border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.06),
     0 20px 28px -14px rgba(0, 0, 0, 0.2);
   /* Full-width polaroids on phones get half the tilt so the text stays easy to read */
@@ -833,7 +833,7 @@ h2 {
 .polaroid-title {
   margin-top: 0.25rem;
   padding-right: 4.25rem;
-  font-size: 1.375rem;
+  font-size: 1.125rem;
   line-height: 1.15;
 
   @media (min-width: 640px) {
