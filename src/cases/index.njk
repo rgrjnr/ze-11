@@ -1,30 +1,17 @@
 ---
 layout: base.njk
 title: Cases
-description: Browse our collection of case studies and projects
+description: Conceptual UX/UI case studies by José Ferreira
 ---
 
-{% from "components/card.njk" import card %}
-<div class="px-4 mb-24">
-    <div class="max-w-6xl mx-auto">
-        <div class="text-center my-12">
-            <h1 class="text-4xl font-bold text-gray-900 my-4">Case Studies</h1>
-            <p class="text-xl text-gray-600">Explore my projects and solutions</p>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-animate>
-            {% for case in collections.cases %}
-                {{ card(
-                    case.data.title,
-                    case.data.excerpt,
-                    case.url,
-                    case.data.image
-                ) }}
-            {% endfor %}
-        </div>
-        {% if collections.cases.length === 0 %}
-            <div class="text-center py-12 mb-24">
-                <p class="text-gray-500 text-lg">No cases available yet. Check back soon!</p>
-            </div>
-        {% endif %}
+<div class="container mx-auto mb-24">
+    <div class="text-center my-12">
+        <h1 class="text-4xl font-bold my-4">Conceptual Studies</h1>
+        <p class="text-xl">Projects from my UX/UI studies, where I explored research, strategy and interface design.</p>
     </div>
+    {% if collections.cases and collections.cases.length %}
+        {% include "components/studies.njk" %}
+    {% else %}
+        <p class="text-center py-12">No case studies yet. Check back soon!</p>
+    {% endif %}
 </div>
