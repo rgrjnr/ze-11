@@ -50,25 +50,6 @@ svg {
   }
 }
 
-.hero-h1 {
-  text-align: center;
-
-  small {
-    font-size: 1.5rem;
-    line-height: 1;
-    font-weight: 600;
-    font-family: mundial, sans-serif;
-  }
-
-  strong {
-    font-size: clamp(2rem, 10vw, 7rem);
-    white-space: nowrap;
-    line-height: 1;
-    text-transform: uppercase;
-    font-weight: 800;
-  }
-}
-
 h1,
 h2,
 h3,
@@ -544,30 +525,6 @@ h2 {
   }
 }
 
-.open-to-work {
-  position: relative;
-
-  .open-to-work-front {
-    transition: all 0.2s ease-in-out;
-  }
-
-  .open-to-work-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    transition: all 0.2s ease-in-out;
-  }
-
-  &:hover {
-    .open-to-work-front {
-      transform: translate(-1rem, -1rem);
-    }
-  }
-}
-
 .stroke {
   stroke: #262626;
   stroke-width: 4;
@@ -871,5 +828,295 @@ h2 {
 
   svg {
     transition: transform 0.2s ease-in-out;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Hero, from the Figma redesign (file "Ze UX/UI Portfolio", node 100:6542).
+   Pixel values below are the Figma geometry at 1512px.
+   ------------------------------------------------------------------ */
+@font-face {
+  font-family: "Gochi Hand";
+  src: url("/assets/fonts/gochi-hand-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.hero {
+  --ink: #1e1e1e;
+  --hand: "Gochi Hand", cursive;
+  --display: degular-display, degular, sans-serif;
+  --hover-ease: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  max-width: 84rem;
+  margin-inline: auto;
+  padding: 3rem 1rem 0;
+  color: var(--ink);
+
+  @media (min-width: 1024px) {
+    padding-top: 5rem;
+  }
+}
+
+.hero-grid {
+  display: grid;
+  gap: 3rem;
+  justify-items: center;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    justify-items: stretch;
+    gap: 4rem;
+  }
+}
+
+.hero-copy {
+  width: 100%;
+}
+
+.hero-hello {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 0.3em;
+  font-family: var(--hand);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  line-height: 1.25;
+}
+
+.hero-name {
+  position: relative;
+  white-space: nowrap;
+  padding-inline: 0.15em;
+}
+
+/* Hand-drawn ellipse around the name (Figma: rotate 177.99deg + flip Y) */
+.hero-name-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(100% + 0.4em);
+  height: auto;
+  transform: translate(-50%, -50%) rotate(-2.01deg) scaleX(-1);
+  pointer-events: none;
+}
+
+/* Arrow from the name to the polaroid: fills the rest of the line and the grid gap */
+.hero-arrow {
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+    flex: 1 1 0;
+    min-width: 4rem;
+    margin-left: 0.3em;
+    margin-right: -3.5rem;
+    align-self: flex-start;
+    position: relative;
+    top: -1.1em;
+
+    img {
+      width: 100%;
+      height: auto;
+      transform: rotate(3.51deg) scaleY(-1);
+    }
+  }
+}
+
+.hero-title {
+  margin-top: 0.75rem;
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 5.3vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-smiley {
+  display: inline-block;
+  width: 0.33em;
+  height: auto;
+  margin-left: 0.05em;
+  vertical-align: baseline;
+  transform: translateY(0.3em) rotate(17.57deg);
+}
+
+.hero-subtitle {
+  margin-top: 1.5rem;
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+/* Polaroid: default = component 103:6699, hover = 103:6698 */
+.hero-polaroid {
+  position: relative;
+  flex-shrink: 0;
+  width: 331.665px;
+  height: 397.728px;
+  margin: 0;
+}
+
+.hero-polaroid-card {
+  position: absolute;
+  z-index: 1;
+  left: 15.83px;
+  top: 34.36px;
+  width: 300px;
+  height: 350px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: -0.833px 3.333px 10px 0 rgba(0, 0, 0, 0.25);
+  transform: rotate(5.41deg);
+  transition: transform 0.45s var(--hover-ease), box-shadow 0.45s ease;
+}
+
+.hero-polaroid-photo {
+  position: absolute;
+  left: 13.33px;
+  top: 13.33px;
+  width: 273.333px;
+  height: 259.167px;
+  border-radius: 3.333px;
+  object-fit: cover;
+}
+
+.hero-polaroid-caption {
+  position: absolute;
+  inset: 272.5px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--hand);
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* Strikes sit behind the card's top-right corner and pop out on hover.
+   (Full class names: this stylesheet uses native CSS nesting, which has no `&--suffix`.) */
+.hero-polaroid-strike {
+  position: absolute;
+  z-index: 0;
+  transform: translate(0, 0) rotate(var(--r));
+  transition: transform 0.45s var(--hover-ease);
+}
+
+.hero-polaroid-strike--1 {
+  --r: 0deg;
+  --hover: translate(57.5px, -53.4px) rotate(-14.54deg);
+  left: 252.18px;
+  top: 55.87px;
+}
+
+.hero-polaroid-strike--2 {
+  --r: 23.37deg;
+  --hover: translate(64.6px, -56.6px) rotate(8.83deg);
+  left: 258.07px;
+  top: 88.87px;
+}
+
+.hero-polaroid-strike--3 {
+  --r: 54.04deg;
+  --hover: translate(70.8px, -56.4px) rotate(39.5deg);
+  left: 257.38px;
+  top: 109.67px;
+}
+
+.hero-polaroid:hover {
+  .hero-polaroid-card {
+    transform: translate(-12.17px, 6.98px) rotate(1.21deg);
+    box-shadow: 5px 5px 2px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .hero-polaroid-strike {
+    transform: var(--hover);
+  }
+}
+
+/* "Open to work": default = component 76:6277, hover = 76:6276 */
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+
+  @media (min-width: 1024px) {
+    margin-top: 1rem;
+  }
+}
+
+.hero-button {
+  position: relative;
+  display: block;
+  width: 312px;
+  height: 92px;
+  max-width: 100%;
+}
+
+.hero-button-face {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  background: #f7f7f7;
+  border: 4px solid var(--ink);
+  border-radius: 16px;
+  font-family: var(--hand);
+  font-size: 44px;
+  line-height: 1;
+  white-space: nowrap;
+  transition: transform 0.3s var(--hover-ease);
+}
+
+.hero-button-shadow {
+  position: absolute;
+  z-index: 0;
+  left: -26px;
+  top: 0;
+  width: 319px;
+  height: 113.044px;
+  max-width: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hero-button-strikes {
+  position: absolute;
+  z-index: 1;
+  left: 246.58px;
+  top: 8.42px;
+  width: 36.357px;
+  height: 33.923px;
+  transition: transform 0.3s var(--hover-ease);
+}
+
+.hero-button:hover,
+.hero-button:focus-visible {
+  .hero-button-face {
+    transform: translate(7px, -18px) rotate(2deg);
+  }
+
+  .hero-button-shadow {
+    opacity: 1;
+  }
+
+  .hero-button-strikes {
+    transform: translate(56px, -49px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-polaroid-card,
+  .hero-polaroid-strike,
+  .hero-button-face,
+  .hero-button-strikes,
+  .hero-button-shadow {
+    transition: none;
   }
 }
