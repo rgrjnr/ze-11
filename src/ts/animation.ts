@@ -14,6 +14,25 @@ export const initAnimations = () => {
     effects: true,
   });
 
+  // ScrollSmoother moves the content with transforms, so native #hash jumps don't land.
+  // Scroll same-page anchor links (e.g. the header's "/#my-work") through the smoother.
+  const scrollToHash = (hash: string, smooth: boolean) => {
+    const target = hash.length > 1 ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
+    if (target) smoother.scrollTo(target, smooth, "top 24px");
+    return Boolean(target);
+  };
+  document.addEventListener("click", (event) => {
+    const link = (event.target as HTMLElement).closest<HTMLAnchorElement>("a[href*='#']");
+    if (!link || link.pathname !== window.location.pathname || !link.hash) return;
+    if (scrollToHash(link.hash, true)) {
+      event.preventDefault();
+      history.pushState(null, "", link.hash);
+    }
+  });
+  if (window.location.hash) {
+    window.addEventListener("load", () => scrollToHash(window.location.hash, false));
+  }
+
   // Progress bar animation
   const progressBar = document.querySelector(".progress-bar") as HTMLElement;
   const progressBarContainer = document.querySelector(
