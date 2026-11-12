@@ -49,15 +49,20 @@
     <body class="{{ tags }}">
         <div id="smooth-wrapper">
             <div id="smooth-content">
-                <header class="container">
-                    <nav class="flex justify-between items-center">
-                        <a href="mailto:hi@joseferreira.io" class="text-xl font-bold flex items-center gap-2">
-                            {% include "src/assets/images/logo-email.svg" %} hi@joseferreira.io
-                        </a>
-                        <div class="flex items-center space-x-4 hidden md:flex">
-                            <a href="/" class="text-gray-600 hover:text-blue-600">Home</a>
-                            <a href="/cases/" class="text-gray-600 hover:text-blue-600">Cases</a>
-                        </div>
+                {# Header from the Figma redesign (component 76:6266) #}
+                <header class="site-header">
+                    <a href="mailto:hi@joseferreira.io" class="site-header-mail">
+                        {% include "src/assets/images/logo-email.svg" %}
+                        <span>hi@joseferreira.io</span>
+                    </a>
+                    <button type="button" class="site-header-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                    <nav class="site-header-nav" id="site-nav" aria-label="Main">
+                        <a href="/#about">About</a>
+                        <a href="/#my-work">Work</a>
+                        <a href="/#conceptual-projects">Studies</a>
+                        <a href="/assets/cv/jose-ferreira-cv.pdf" download>Download CV</a>
                     </nav>
                 </header>
                 <main>
