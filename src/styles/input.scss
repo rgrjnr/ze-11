@@ -17,7 +17,10 @@ body {
   --black: #1b1b1b;
   --white: #fafafa;
 
-  font-family: degular-display, degular, sans-serif;
+  /* Degular Display = the kit's "degular-variable" at its largest optical size
+     (the kit has no separate degular-display family). */
+  font-family: degular-variable, degular, sans-serif;
+  font-variation-settings: "opsz" 72;
   font-weight: 500;
   line-height: 1.5;
   /* Dotted paper, like a FigJam board (from the Figma hero redesign) */
@@ -846,7 +849,7 @@ h2 {
 .hero {
   --ink: #1e1e1e;
   --hand: "Gochi Hand", cursive;
-  --display: degular-display, degular, sans-serif;
+  --display: degular-variable, degular, sans-serif;
   --hover-ease: cubic-bezier(0.34, 1.4, 0.64, 1);
 
   max-width: 84rem;
@@ -925,13 +928,21 @@ h2 {
   }
 }
 
+/* Degular Display Bold, 76px max (Figma 80px - 4px). Sized to stay on one line:
+   the title is ~10.4em wide including the smiley. */
 .hero-title {
   margin-top: 0.75rem;
   font-family: var(--display);
-  font-size: clamp(2.5rem, 5.3vw, 5rem);
+  font-variation-settings: "opsz" 72;
+  font-size: clamp(1.5rem, 8.4vw, 3.5rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
+  white-space: nowrap;
+
+  @media (min-width: 1024px) {
+    font-size: clamp(2.5rem, 5.3vw, 4.75rem);
+  }
 }
 
 .hero-smiley {
@@ -958,6 +969,11 @@ h2 {
   width: 331.665px;
   height: 397.728px;
   margin: 0;
+
+  /* very narrow phones: the 332px polaroid would be wider than the column */
+  @media (max-width: 379px) {
+    zoom: 0.85;
+  }
 }
 
 .hero-polaroid-card {
@@ -1132,7 +1148,7 @@ h2 {
   margin-inline: auto;
   padding: 1.5rem 1rem;
   color: #1e1e1e;
-  font-family: degular-display, degular, sans-serif;
+  font-family: degular-variable, degular, sans-serif;
   font-weight: 600;
 
   @media (min-width: 1024px) {
