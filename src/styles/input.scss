@@ -1095,21 +1095,22 @@ h2 {
   position: absolute;
   top: 0;
   right: 100%;
-  width: 393px;
-  height: 143px;
+  width: 250px;
+  height: 100px;
   pointer-events: none;
 }
 
 .hero-shy-arrow {
   position: absolute;
-  inset: 0;
+  left: 50px;
+  top: 30px;
 }
 
-/* sits just left of the arrowhead (arrow spans x 164-391 of the 393px box) */
+/* above the arrowhead, as in the reference image */
 .hero-shy-text {
   position: absolute;
-  right: 238px;
-  top: -6px;
+  left: 2px;
+  top: -22px;
   display: flex;
   flex-direction: column;
   font-family: var(--hand);
