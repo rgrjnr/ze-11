@@ -1123,8 +1123,8 @@ h2 {
 
 /* Header, from the Figma redesign (component 76:6266): same content width as the hero */
 .site-header {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1rem 2rem;
@@ -1154,13 +1154,87 @@ h2 {
   }
 }
 
+/* Phones: hamburger on the right opens the nav as a dropdown card.
+   768px and up: the nav sits inline on the right of the header. */
+.site-header-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  flex-shrink: 0;
+
+  span {
+    display: block;
+    height: 4px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+
+  /* slightly uneven lines, to match the hand-drawn style */
+  span:nth-child(2) {
+    width: 85%;
+  }
+
+  &[aria-expanded="true"] {
+    span:nth-child(1) {
+      transform: translateY(10px) rotate(45deg);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
 .site-header-nav {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem 1.5rem;
   font-size: 1.125rem;
   line-height: 1.2;
+
+  @media (max-width: 767px) {
+    position: absolute;
+    z-index: 200;
+    top: calc(100% - 0.5rem);
+    right: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    min-width: 13rem;
+    padding: 1.25rem 1.5rem;
+    background: #f7f7f7;
+    border: 4px solid #1e1e1e;
+    border-radius: 16px;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.25);
+    font-size: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.5rem) rotate(-1deg);
+    transition: opacity 0.2s ease, transform 0.25s ease, visibility 0s 0.25s;
+
+    .site-header.is-open & {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) rotate(-1deg);
+      transition: opacity 0.2s ease, transform 0.25s ease;
+    }
+  }
+
+  @media (min-width: 768px) {
+    gap: 2rem;
+  }
 
   @media (min-width: 1024px) {
     gap: 60px;

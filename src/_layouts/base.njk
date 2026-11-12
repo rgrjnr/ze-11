@@ -55,7 +55,10 @@
                         {% include "src/assets/images/logo-email.svg" %}
                         <span>hi@joseferreira.io</span>
                     </a>
-                    <nav class="site-header-nav" aria-label="Main">
+                    <button type="button" class="site-header-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                    <nav class="site-header-nav" id="site-nav" aria-label="Main">
                         <a href="/#about">About</a>
                         <a href="/#my-work">Work</a>
                         <a href="/#conceptual-projects">Studies</a>

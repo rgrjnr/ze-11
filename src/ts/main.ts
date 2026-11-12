@@ -112,6 +112,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Mobile header menu (hamburger, below 768px)
+  const header = document.querySelector<HTMLElement>(".site-header");
+  const toggle = header?.querySelector<HTMLButtonElement>(".site-header-toggle");
+  if (header && toggle) {
+    const setOpen = (open: boolean) => {
+      header.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    toggle.addEventListener("click", () => setOpen(!header.classList.contains("is-open")));
+    header.querySelectorAll(".site-header-nav a").forEach((link) =>
+      link.addEventListener("click", () => setOpen(false))
+    );
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && header.classList.contains("is-open")) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    document.addEventListener("click", (event) => {
+      if (!header.contains(event.target as Node)) setOpen(false);
+    });
+  }
+
   // Expose the height of each case's hidden content (.more) and title as CSS
   // variables so the hover can expand to fit. Re-measure whenever they resize:
   // the cover image usually loads after DOMContentLoaded, and fonts and the
