@@ -713,9 +713,11 @@ h2 {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 0.875rem 0.875rem 1.5rem;
+  /* outer radius = photo radius (8px) + the photo's inset, so the corners nest */
+  --photo-inset: 0.875rem;
+  padding: var(--photo-inset) var(--photo-inset) 1.5rem;
   background: #fff;
-  border-radius: 4px;
+  border-radius: calc(8px + var(--photo-inset));
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.06),
     0 20px 28px -14px rgba(0, 0, 0, 0.2);
   /* Full-width polaroids on phones get half the tilt so the text stays easy to read */
@@ -723,7 +725,8 @@ h2 {
   transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
 
   @media (min-width: 640px) {
-    padding: 1rem 1rem 1.75rem;
+    --photo-inset: 1rem;
+    padding: var(--photo-inset) var(--photo-inset) 1.75rem;
     transform: rotate(var(--tilt));
   }
 
@@ -747,21 +750,23 @@ h2 {
 .polaroid-pin {
   position: absolute;
   z-index: 2;
-  top: -1.6rem;
+  top: -1.25rem;
   left: 50%;
-  transform: translateX(-50%) rotate(10deg);
-  filter: drop-shadow(1px 2px 1.5px rgba(0, 0, 0, 0.25));
+  transform: translateX(-50%);
 }
 
 .polaroid-photo {
   position: relative;
   aspect-ratio: 4 / 3;
   background: #eee;
+  /* radius on the photo itself, not overflow: hidden, so the sticker can overhang */
+  border-radius: 8px;
 
   > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 8px;
   }
 }
 
@@ -893,6 +898,16 @@ h2 {
   position: relative;
   white-space: nowrap;
   padding-inline: 0.15em;
+  transition: color 0.3s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: #026fe3;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 /* Hand-drawn ellipse around the name (Figma: rotate 177.99deg + flip Y) */
@@ -900,10 +915,35 @@ h2 {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: calc(100% + 0.4em);
-  height: auto;
+  /* Roomy enough that the stroke never crosses the letters; it may run
+     over "I'm" on the left. */
+  width: calc(100% + 1.8em);
+  max-width: none; /* Tailwind preflight caps svg at 100% */
+  height: 2.5em;
   transform: translate(-50%, -50%) rotate(-2.01deg) scaleX(-1);
   pointer-events: none;
+
+  /* Hidden until the name is hovered, then drawn with a stroke animation
+     (pathLength="1" on the path, so the dash values are fractions). */
+  path {
+    stroke: #026fe3;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 0.35s ease-in;
+  }
+
+  .hero-name:hover & path,
+  .hero-name:focus-visible & path {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.9s ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    path,
+    .hero-name:hover & path {
+      transition: none;
+    }
+  }
 }
 
 /* Arrow from the name to the polaroid: fills the rest of the line and the grid gap */
@@ -951,7 +991,7 @@ h2 {
   height: auto;
   margin-left: 0.05em;
   vertical-align: baseline;
-  transform: translateY(0.3em) rotate(17.57deg);
+  transform: translate(8px, 0.3em) rotate(17.57deg);
 }
 
 .hero-subtitle {
@@ -1293,16 +1333,221 @@ h2 {
     font-size: 1.5rem;
   }
 
+  /* Hand-drawn zigzag underline, drawn left to right on hover.
+     The zigzag is an SVG mask filled with currentColor; clip-path reveals it. */
   a {
-    background-image: linear-gradient(currentColor, currentColor);
-    background-size: 0 2px;
-    background-position: 0 100%;
-    background-repeat: no-repeat;
-    transition: background-size 0.25s ease;
+    position: relative;
   }
 
-  a:hover,
-  a:focus-visible {
-    background-size: 100% 2px;
+  a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 6px;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 5 L5 1 L10 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") repeat-x 0 0 / 10px 6px;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 5 L5 1 L10 5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") repeat-x 0 0 / 10px 6px;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.3s ease;
+    pointer-events: none;
+  }
+
+  a:hover::after,
+  a:focus-visible::after {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* "What I can do to help YOU!" (Figma redesign): a row of post-its with a
+   stick figure, a dashed path running across them and a paper plane.
+   The path only shows when all six post-its sit on one row (1280px+). */
+.help {
+  --ink: #1e1e1e;
+  --display: degular-variable, degular, sans-serif;
+
+  max-width: 84rem;
+  margin: 4rem auto;
+  padding-inline: 1rem;
+  color: var(--ink);
+
+  @media (min-width: 1024px) {
+    margin-block: 6rem;
+  }
+}
+
+.help-title {
+  position: relative;
+  font-family: var(--display);
+  font-variation-settings: "opsz" 72;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.help-title-mark {
+  display: inline-block;
+  position: relative;
+  top: -0.5em;
+  width: 1.15em;
+  height: auto;
+  margin-left: 0.05em;
+  vertical-align: top;
+
+  /* strokes scale with the title (a global rule makes them non-scaling) */
+  path {
+    vector-effect: none;
+  }
+}
+
+.help-intro {
+  max-width: 54rem;
+  margin-top: 1.25rem;
+  font-family: var(--display);
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  line-height: 1.5;
+}
+
+.help-board {
+  position: relative;
+  margin-top: 4rem;
+}
+
+.help-notes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.125rem;
+  }
+}
+
+.note.help-note {
+  aspect-ratio: auto;
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+
+  @media (min-width: 480px) {
+    aspect-ratio: 1 / 1;
+  }
+
+  p {
+    margin-top: 0.4rem;
+  }
+}
+
+.help-note-title {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 72;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.help-walker {
+  position: absolute;
+  top: calc(-3.25rem + 10px);
+  left: -0.25rem;
+  width: 30px;
+  height: auto;
+}
+
+.help-path {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  /* viewBox maps the Figma frame: post-its span x 72–1262, y 220–402 */
+  left: calc(-42 / 1190 * 100%);
+  width: calc(1270 / 1190 * 100%);
+  top: calc(-80 / 182 * 100%);
+  height: calc(320 / 182 * 100%);
+  max-width: none; /* Tailwind preflight caps svg at 100% */
+  pointer-events: none;
+
+  @media (min-width: 1280px) {
+    display: block;
+  }
+}
+
+.help-path-line {
+  stroke: #262626;
+  stroke-width: 3;
+  stroke-dasharray: 14 10;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+
+/* Footer CTA: "Let's work together" and "Click here" in Gochi Hand
+   (replace the old drawn lettering). */
+.footer-hand-title {
+  font-family: "Gochi Hand", cursive;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  line-height: 1.1;
+  color: #1e1e1e;
+}
+
+.footer-click {
+  position: absolute;
+  right: calc(100% + 0.5rem);
+  bottom: 0.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.footer-click-label {
+  margin-left: -5rem;
+  font-family: "Gochi Hand", cursive;
+  font-size: 1.625rem;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: rotate(-9deg);
+  color: #1e1e1e;
+}
+
+.footer-click-arrow {
+  width: 86px;
+  height: auto;
+  margin-top: 0.5rem;
+}
+
+/* My Work stack: the first sheet stays open, and closes while another
+   sheet is hovered (so only one is ever open). */
+.work-stack .page-layer:first-child {
+  height: calc(var(--content-height) + var(--title-height) + 2rem);
+
+  .inner-page-arrow {
+    stroke-dashoffset: 0;
+  }
+
+  .inner-page-image {
+    transform: translate(0, 0);
+  }
+}
+
+.work-stack:has(.page-layer:not(:first-child):hover) .page-layer:first-child {
+  height: calc(var(--title-height) + 2rem);
+
+  .inner-page-arrow {
+    stroke-dashoffset: -43px;
+  }
+
+  .inner-page-image {
+    transform: translateY(-20%) rotate(0.5deg);
   }
 }
