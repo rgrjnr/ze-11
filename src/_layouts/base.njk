@@ -13,9 +13,9 @@
         rel="preconnect" href="https://p.typekit.net"> <!-- Tailwind CSS -->
         <link rel="stylesheet" href="https://use.typekit.net/hpo8xtc.css">
         <link
-        rel="stylesheet" href="/assets/css/style.css">
+        rel="stylesheet" href="/assets/css/style.css?v={{ buildVersion }}">
         <!-- Custom TypeScript -->
-        <script src="/dist/main.js" type="module"></script>
+        <script src="/dist/main.js?v={{ buildVersion }}" type="module"></script>
         {# <script nomodule src="/dist/main-legacy.js"></script> #}
         <!-- SEO Meta Tags -->
         <meta name="description" content="{% if excerpt %}{{ excerpt }}{% else %}UX/UI Designer José Ferreira crafts accessible digital experiences; from museum sites to fintech; offering UX research, prototyping & design systems expertise.{% endif %}">

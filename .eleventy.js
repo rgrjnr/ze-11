@@ -2,6 +2,9 @@ const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 const MarkdownIt = require("markdown-it");
 
 module.exports = async function (eleventyConfig) {
+  // Changes on every build so the long-cached CSS/JS URLs change too.
+  eleventyConfig.addGlobalData("buildVersion", Date.now().toString(36));
+
   const { IdAttributePlugin } = await import("@11ty/eleventy");
   const Image = await import("@11ty/eleventy-img");
 

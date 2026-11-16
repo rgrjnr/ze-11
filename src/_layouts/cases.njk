@@ -38,9 +38,9 @@
         rel="canonical" href="https://joseferreira.io{{ page.url }}"> <!-- Tailwind CSS -->
         <link rel="stylesheet" href="https://use.typekit.net/hpo8xtc.css">
         <link
-        rel="stylesheet" href="/assets/css/style.css">
+        rel="stylesheet" href="/assets/css/style.css?v={{ buildVersion }}">
         <!-- Custom TypeScript -->
-        <script src="/dist/main.js" type="module"></script>
+        <script src="/dist/main.js?v={{ buildVersion }}" type="module"></script>
         <script nomodule src="/dist/main-legacy.js"></script>
     </head>
     <body class="{{ tags }}">

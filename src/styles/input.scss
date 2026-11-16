@@ -14,6 +14,17 @@
 
 body {
   --bleed-width: min(calc(100vw - 4rem), 70rem);
+  /* Side margin of the page, shared by every section. */
+  --gutter: 24px;
+
+  @media (min-width: 768px) {
+    --gutter: 32px;
+  }
+
+  @media (min-width: 1024px) {
+    --gutter: 48px;
+  }
+
   --black: #1b1b1b;
   --white: #fafafa;
 
@@ -146,7 +157,7 @@ h6 {
 
 .container {
   @apply mx-auto;
-  padding: 1rem;
+  padding: 1rem var(--gutter);
   max-width: 50rem;
 }
 
@@ -859,7 +870,7 @@ h2 {
 
   max-width: 84rem;
   margin-inline: auto;
-  padding: 3rem 1rem 0;
+  padding: 3rem var(--gutter) 0;
   color: var(--ink);
 
   @media (min-width: 1024px) {
@@ -1221,7 +1232,7 @@ h2 {
   gap: 1rem 2rem;
   max-width: 84rem;
   margin-inline: auto;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem var(--gutter);
   color: #1e1e1e;
   font-family: degular-variable, degular, sans-serif;
   font-weight: 600;
@@ -1369,7 +1380,7 @@ h2 {
 
   max-width: 84rem;
   margin: 4rem auto;
-  padding-inline: 1rem;
+  padding-inline: var(--gutter);
   color: var(--ink);
 
   @media (min-width: 1024px) {
