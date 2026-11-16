@@ -1253,6 +1253,26 @@ h2 {
     width: 47px;
     height: auto;
     flex-shrink: 0;
+    overflow: visible;
+  }
+
+  /* Hover: the flap flips up and the envelope opens. */
+  .mail-flap {
+    transform-box: view-box;
+    transform-origin: 26px 2.6px;
+    transition: transform 0.3s ease-in;
+  }
+
+  &:hover .mail-flap,
+  &:focus-visible .mail-flap {
+    transform: scaleY(-0.55);
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mail-flap {
+      transition: none;
+    }
   }
 }
 
