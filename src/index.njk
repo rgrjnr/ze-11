@@ -47,10 +47,10 @@ description: Welcome to our 11ty site with Tailwind CSS, TypeScript, and SCSS
 {% include "components/websummit.njk" %}
 {# "What I can do to help YOU!" – post-its from the Figma redesign #}
 <section class="help" aria-labelledby="help-title">
-    <h2 class="help-title" id="help-title">What I can do to help <span class="whitespace-nowrap">YOU!<svg
-            width="120"
-            height="100"
-            viewBox="0 0 120 100"
+    <h2 class="help-title" id="help-title">What I can do to help <span class="help-title-you">YOU!<svg
+            width="165"
+            height="155"
+            viewBox="-30 -110 165 155"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -58,10 +58,15 @@ description: Welcome to our 11ty site with Tailwind CSS, TypeScript, and SCSS
             data-draw
             data-stagger="0.15"
             data-duration="0.25">
-            {# three bold "emphasis" strokes, as in the Figma title #}
-            <path d="M11 10 L18 44" stroke="#1e1e1e" stroke-width="13" stroke-linecap="round"/>
-            <path d="M84 8 L52 58" stroke="#1e1e1e" stroke-width="14" stroke-linecap="round"/>
-            <path d="M61 86 C 78 86, 98 88, 113 92" stroke="#1e1e1e" stroke-width="12" stroke-linecap="round"/>
+            {# marker "emphasis" strokes. Units: 0,0 = top of the capitals at the
+               right edge of the "!", 110 = cap height. Each stroke is doubled
+               with a slightly offset pass for a felt-tip look. #}
+            <path d="M-14 -96 L-12 -50" stroke="#1e1e1e" stroke-width="21" stroke-linecap="round"/>
+            <path d="M-5 -93 L-8 -56" stroke="#1e1e1e" stroke-width="17" stroke-linecap="round"/>
+            <path d="M86 -96 L36 -30" stroke="#1e1e1e" stroke-width="27" stroke-linecap="round"/>
+            <path d="M93 -86 L47 -24" stroke="#1e1e1e" stroke-width="18" stroke-linecap="round"/>
+            <path d="M44 20 C 70 16, 100 16, 124 22" stroke="#1e1e1e" stroke-width="22" stroke-linecap="round"/>
+            <path d="M56 29 C 80 30, 104 30, 120 32" stroke="#1e1e1e" stroke-width="17" stroke-linecap="round"/>
         </svg></span></h2>
     <p class="help-intro">My work so far has been mainly with startups, building their products and websites from the ground up.<br class="hidden lg:inline"> Here’s where I’ve been most useful.</p>
     <div class="help-board">
@@ -84,7 +89,7 @@ description: Welcome to our 11ty site with Tailwind CSS, TypeScript, and SCSS
             </g>
         </svg>
         <ul class="help-notes">
-            <li class="note help-note">
+            <li class="note help-note help-note-front">
                 <svg
                     width="30"
                     height="59"

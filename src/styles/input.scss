@@ -15,14 +15,14 @@
 body {
   --bleed-width: min(calc(100vw - 4rem), 70rem);
   /* Side margin of the page, shared by every section. */
-  --gutter: 24px;
+  --gutter: 8px;
 
   @media (min-width: 768px) {
-    --gutter: 32px;
+    --gutter: 16px;
   }
 
   @media (min-width: 1024px) {
-    --gutter: 48px;
+    --gutter: 32px;
   }
 
   --black: #1b1b1b;
@@ -1410,6 +1410,11 @@ h2 {
 
 .help-title {
   position: relative;
+
+  /* room for the flipped strokes under a wrapped "YOU!" */
+  &:has(.is-wrapped) {
+    padding-bottom: 0.45em;
+  }
   font-family: var(--display);
   font-variation-settings: "opsz" 72;
   font-size: clamp(2rem, 4.5vw, 3rem);
@@ -1418,14 +1423,32 @@ h2 {
   line-height: 1.1;
 }
 
-.help-title-mark {
-  display: inline-block;
+.help-title-you {
   position: relative;
-  top: -0.5em;
-  width: 1.15em;
-  height: auto;
-  margin-left: 0.05em;
-  vertical-align: top;
+  white-space: nowrap;
+
+  /* the mark is drawn in cap-height units: 110 = cap height of the title */
+  --cap: 0.614em;
+  --cap-top: 0.313em;
+  --u: calc(var(--cap) / 92);
+}
+
+.help-title-mark {
+  position: absolute;
+  left: calc(100% - 36 * var(--u));
+  top: calc(var(--cap-top) - 110 * var(--u));
+
+  /* "YOU!" on its own line: mirror the strokes over the middle of the
+     capitals (y 46, cap height = 92 units) so they come out under the word instead of over the
+     line above */
+  .is-wrapped > & {
+    top: calc(var(--cap-top) + 47 * var(--u));
+    transform: scaleY(-1);
+  }
+  width: calc(165 * var(--u));
+  height: calc(155 * var(--u));
+  max-width: none;
+  pointer-events: none;
 
   /* strokes scale with the title (a global rule makes them non-scaling) */
   path {
@@ -1442,26 +1465,29 @@ h2 {
 }
 
 .help-board {
+  /* every post-it is the same square; only the number of columns changes */
+  --note-size: 11.25rem; /* 180px: six fit in one row from 1200px, 14px body text */
+
   position: relative;
   margin-top: 4rem;
+
+  /* one row: the board hugs the six notes so the dashed path (sized in %
+     of the board) keeps lining up with them */
+  @media (min-width: 1200px) {
+    width: fit-content;
+    margin-inline: auto;
+  }
 }
 
 .help-notes {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fill, var(--note-size));
+  justify-content: center;
   gap: 1.5rem;
 
-  @media (min-width: 480px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media (min-width: 1280px) {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.125rem;
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(6, var(--note-size));
+    gap: 0.75rem;
   }
 }
 
@@ -1484,17 +1510,19 @@ h2 {
     }
   }
 
-  aspect-ratio: auto;
+  /* fixed square on every screen; body text never below 14px */
+  width: var(--note-size);
+  aspect-ratio: 1 / 1;
   padding: 1rem;
   font-size: 0.875rem;
   line-height: 1.45;
 
-  @media (min-width: 480px) {
-    aspect-ratio: 1 / 1;
-  }
-
   p {
     margin-top: 0.4rem;
+  }
+
+  .help-note-title {
+    font-size: 1.25rem;
   }
 }
 
@@ -1526,7 +1554,7 @@ h2 {
   max-width: none; /* Tailwind preflight caps svg at 100% */
   pointer-events: none;
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1200px) {
     display: block;
   }
 }

@@ -83,10 +83,28 @@ class Site {
   }
 }
 
+// When "YOU!" wraps onto its own line, the emphasis strokes would sit on
+// the line above; .is-wrapped flips them to come out under the word.
+function watchTitleWrap() {
+  const title = document.querySelector<HTMLElement>(".help-title");
+  const you = title?.querySelector<HTMLElement>(".help-title-you");
+  if (!title || !you) return;
+
+  const update = () => {
+    const wrapped = you.getBoundingClientRect().top - title.getBoundingClientRect().top > you.offsetHeight / 2;
+    you.classList.toggle("is-wrapped", wrapped);
+  };
+
+  new ResizeObserver(update).observe(title);
+  document.fonts?.ready.then(update);
+}
+
 // Initialize the site when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   new Site();
   initAnimations();
+
+  watchTitleWrap();
 
   posthog.init("phc_EURtqaH02FjTJsJHvksqGPoehMzE978qjkh7PDcQnt6", {
     api_host: "https://eu.i.posthog.com",
